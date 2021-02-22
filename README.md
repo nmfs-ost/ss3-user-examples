@@ -16,3 +16,11 @@ recommendation or favoring by the Department of Commerce. The Department of
 Commerce seal and logo, or the seal and logo of a DOC bureau, shall not be used 
 in any manner to imply endorsement of any commercial product or activity by DOC
 or the United States Government.”
+
+# Selectivity examples
+The models [selex_length_example](https://github.com/nmfs-stock-synthesis/user-examples/tree/main/model_files/selex_length_example) and [selex_age_example](https://github.com/nmfs-stock-synthesis/user-examples/tree/main/model_files/selex_age_example) can be used to see the control file setup for 5 length-based and 6 age-based selectivity types as shown in the figure below.
+
+![selectivity at length and age as estimated in the 'selex_length_example' and 'selex_age_example' models](https://github.com/nmfs-stock-synthesis/user-examples/tree/main/selex_shapes.png?raw=true)
+
+These examples were created for a tutorial at the [2013 CAPAM workshop on selectivity](http://www.capamresearch.org/current-projects/selectivity). In these models, each fleet is provided the same simulated data so the large differences in estimated uncertainty associated with each type (as shown in the plot below) are an illustration of the flexibility of each type. Note: this figure depends on iteratively changing the fleet associated with the reported selectivity uncertainty specified at the bottom of the control file.
+![uncertainty in selectivity at length as estimated in the 'selex_length_example' models](https://github.com/nmfs-stock-synthesis/user-examples/tree/main/selex_length_uncertainty.png?raw=true)
