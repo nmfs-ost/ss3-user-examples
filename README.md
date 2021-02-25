@@ -1,6 +1,58 @@
 # user-examples
-Examples of stock synthesis models for users
 
+This repository contains examples of stock synthesis models for users. The [model metadata](#metadata-for-example-models) more fully describes key features of the examples. 
+
+# Do these models always use Stock Synthesis best practices?
+
+Not always, as Stock Synthesis best practices are constantly evolving. However, all of these models are valid stock synthesis setups. In the future, these example models may be updated to follow best practices (feel free to suggest changes by submitting an issue or pull request).
+
+# How can I submit my model to be a user example?
+
+We welcome model contributions! Please open a [pull request](https://github.com/nmfs-stock-synthesis/user-examples/pulls) after reading our contribution guide and [code of conduct](#code-of-conduct).
+
+# Metadata for example models
+| Model name | Notable features | 
+| --- | --- |
+| simple						  | Long-standing example model. Includes most data types | 
+| simple_with_discard             | "simple" with discard data added |
+| empirical_wtatage_and_age_selex | Uses empirical weight-at-age, based on "simple" |
+| selex_age_example				  | Illustrates setup for 6 age-based selectivity types. [More detail below.](#selectivity-examples)|
+| selex_length_example			  | Illustrates setup for 6 length-based selectivity types. [More detail below.](#selectivity-examples)|
+
+# Selectivity examples
+The models [selex_length_example](https://github.com/nmfs-stock-synthesis/user-examples/tree/main/model_files/selex_length_example) and [selex_age_example](https://github.com/nmfs-stock-synthesis/user-examples/tree/main/model_files/selex_age_example) can be used to see the control file setup for 5 length-based and 6 age-based selectivity types as shown in the figure below.
+
+![selectivity at length and age as estimated in the 'selex_length_example' and 'selex_age_example' models](https://github.com/nmfs-stock-synthesis/user-examples/blob/main/figures/selex_shapes.png?raw=true)
+
+These examples were created for a tutorial at the [2013 CAPAM workshop on selectivity](http://www.capamresearch.org/current-projects/selectivity). In these models, each fleet is provided the same simulated data so the large differences in estimated uncertainty associated with each type (as shown in the plot below) are an illustration of the flexibility of each type. Note: this figure depends on iteratively changing the fleet associated with the reported selectivity uncertainty specified at the bottom of the control file.
+![uncertainty in selectivity at length as estimated in the 'selex_length_example' models](https://github.com/nmfs-stock-synthesis/user-examples/blob/main/figures/selex_length_uncertainty.png?raw=true)
+
+# Contributing guide
+
+## General contribution info
+
+Thank you for your interest in contributing example models! Before contributing, please read the [code of conduct](#code-of-conduct).
+
+We strive to follow the [NMFS Fisheries Toolbox Contribution Guide](https://github.com/nmfs-fish-tools/Resources/blob/master/CONTRIBUTING.md). Note that these are guidelines, not rules, and we are open to collaborations in other ways that may work better for you. Please feel free to reach out to us by opening an issue in this repository or by emailing the developers at nmfs.stock.synthesis@noaa.gov.
+
+## How to submit a pull request
+
+1. [Fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) the stock synthesis repository (or, if you are a member of the nmfs-stock-synthesis organization, clone the repository).
+2. Create a new branch and make the changes (likely adding new model files).
+3. Commit the changes and push up to the github fork.
+4. [Submit a pull request](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork) to the main branch of the user-examples repository.
+
+# Code of conduct
+
+This project and everyone participating in it is governed by the [NMFS Fisheries Toolbox Code of Conduct](https://github.com/nmfs-fish-tools/Resources/blob/master/CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [fisheries.toolbox@noaa.gov](mailto:fisheries.toolbox@noaa.gov). Note that the maintainers of SS do not have access to this email account, so unacceptable behavior of the maintainers can also be reported here.
+
+The NFMS Fisheries Toolbox Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4,
+available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
+
+[homepage]: https://www.contributor-covenant.org
+
+For answers to common questions about this code of conduct, see
+https://www.contributor-covenant.org/faq
 
 # Disclaimer
 
@@ -16,20 +68,3 @@ recommendation or favoring by the Department of Commerce. The Department of
 Commerce seal and logo, or the seal and logo of a DOC bureau, shall not be used 
 in any manner to imply endorsement of any commercial product or activity by DOC
 or the United States Government.”
-
-# Metadata on examples
-| Name | Notable features | 
-| --- | --- |
-| simple						  | Long-standing example model | 
-| simple_with_discard             | "simple" with discard data added |
-| empirical_wtatage_and_age_selex | Uses empirical weight-at-age, based on "simple" |
-| selex_age_example				  | Illustrates setup for 6 age-based selectivity types (more detail below)|
-| selex_length_example			  | Illustrates setup for 6 length-based selectivity types (more detail below) |
-
-# Selectivity examples
-The models [selex_length_example](https://github.com/nmfs-stock-synthesis/user-examples/tree/main/model_files/selex_length_example) and [selex_age_example](https://github.com/nmfs-stock-synthesis/user-examples/tree/main/model_files/selex_age_example) can be used to see the control file setup for 5 length-based and 6 age-based selectivity types as shown in the figure below.
-
-![selectivity at length and age as estimated in the 'selex_length_example' and 'selex_age_example' models](https://github.com/nmfs-stock-synthesis/user-examples/blob/main/figures/selex_shapes.png?raw=true)
-
-These examples were created for a tutorial at the [2013 CAPAM workshop on selectivity](http://www.capamresearch.org/current-projects/selectivity). In these models, each fleet is provided the same simulated data so the large differences in estimated uncertainty associated with each type (as shown in the plot below) are an illustration of the flexibility of each type. Note: this figure depends on iteratively changing the fleet associated with the reported selectivity uncertainty specified at the bottom of the control file.
-![uncertainty in selectivity at length as estimated in the 'selex_length_example' models](https://github.com/nmfs-stock-synthesis/user-examples/blob/main/figures/selex_length_uncertainty.png?raw=true)
