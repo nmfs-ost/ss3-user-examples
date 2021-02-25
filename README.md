@@ -17,6 +17,15 @@ Commerce seal and logo, or the seal and logo of a DOC bureau, shall not be used
 in any manner to imply endorsement of any commercial product or activity by DOC
 or the United States Government.”
 
+# Metadata on examples
+| Name | Notable features | 
+| --- | --- |
+| simple						  | Long-standing example model | 
+| simple_with_discard             | "simple" with discard data added |
+| empirical_wtatage_and_age_selex | Uses empirical weight-at-age, based on "simple" |
+| selex_age_example				  | Illustrates setup for 6 age-based selectivity types (more detail below)|
+| selex_length_example			  | Illustrates setup for 6 length-based selectivity types (more detail below) |
+
 # Selectivity examples
 The models [selex_length_example](https://github.com/nmfs-stock-synthesis/user-examples/tree/main/model_files/selex_length_example) and [selex_age_example](https://github.com/nmfs-stock-synthesis/user-examples/tree/main/model_files/selex_age_example) can be used to see the control file setup for 5 length-based and 6 age-based selectivity types as shown in the figure below.
 
