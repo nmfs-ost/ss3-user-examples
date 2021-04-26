@@ -6,6 +6,8 @@ This repository contains examples of stock synthesis models for users. The [mode
 
 Not always, as Stock Synthesis best practices are constantly evolving. However, all of these models are valid stock synthesis setups. In the future, these example models may be updated to follow best practices (feel free to suggest changes by submitting an issue or pull request).
 
+To learn more about general stock assessment (i.e., not specific to Stock Synthesis) best practices, visit the [Center for the Advancement of Population Assessment Methodology (CAPAM) website](http://www.capamresearch.org/).
+
 # How can I submit my model to be a user example?
 
 We welcome model contributions! Please open a [pull request](https://github.com/nmfs-stock-synthesis/user-examples/pulls) after reading our contribution guide and [code of conduct](#code-of-conduct).
