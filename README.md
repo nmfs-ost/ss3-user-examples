@@ -2,6 +2,15 @@
 
 This repository contains examples of stock synthesis models for users. The [model metadata](#metadata-for-example-models) more fully describes key features of the examples. 
 
+# Table of Contents
+-   [Do these models always use Stock Synthesis best practices?](#do-these-models-always-use-stock-synthesis-best-practices)
+-   [How can I submit my model to be a user example?](#how-can-i-submit-my-model-to-be-a-user-example)
+-   [How do I request a certain type of example?](#how-do-i-request-a-certain-type-of-example)
+-   [Metadata for example models](#metadata-for-example-models)
+-   [Selectivity examples](#selectivity-examples)
+-   [Contributing guide](#contributing-guide)
+-   [Disclaimer](#disclaimer)
+
 # Do these models always use Stock Synthesis best practices?
 
 Not always, as Stock Synthesis best practices are constantly evolving. However, all of these models are valid stock synthesis setups. In the future, these example models may be updated to follow best practices (feel free to suggest changes by submitting an issue or pull request).
@@ -11,6 +20,10 @@ To learn more about general stock assessment (i.e., not specific to Stock Synthe
 # How can I submit my model to be a user example?
 
 Model contributions are welcome! Please open a [pull request](https://github.com/nmfs-stock-synthesis/user-examples/pulls) after reading the [contribution guide](https://github.com/nmfs-stock-synthesis/user-examples#general-contribution-info) and [code of conduct](#code-of-conduct).
+
+# How do I request a certain type of example?
+
+First, please take a look at the current examples available and their [notable features](#metadata-for-example-models). If there isn't one available that meets your needs, please request the type of example model that would be helpful by [opening an issue](https://github.com/nmfs-stock-synthesis/user-examples/issues) or sending an email to nmfs.stock.synthesis@noaa.gov.
 
 # Metadata for example models
 | Model name | Notable features | 
