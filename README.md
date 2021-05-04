@@ -10,7 +10,7 @@ To learn more about general stock assessment (i.e., not specific to Stock Synthe
 
 # How can I submit my model to be a user example?
 
-We welcome model contributions! Please open a [pull request](https://github.com/nmfs-stock-synthesis/user-examples/pulls) after reading our contribution guide and [code of conduct](#code-of-conduct).
+Model contributions are welcome! Please open a [pull request](https://github.com/nmfs-stock-synthesis/user-examples/pulls) after reading the [contribution guide](https://github.com/nmfs-stock-synthesis/user-examples#general-contribution-info) and [code of conduct](#code-of-conduct).
 
 # Metadata for example models
 | Model name | Notable features | 
