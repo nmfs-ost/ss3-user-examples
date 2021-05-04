@@ -32,7 +32,6 @@ jobs:
           print(mod_names)
           run_ss_no_est <- function(dir) {
             wd <- getwd()
-            print(wd)
             on.exit(system(paste0("cd ", wd)))
             # run the models with estimation and see if model finishes without error
             message("running ss on ", basename(dir))
