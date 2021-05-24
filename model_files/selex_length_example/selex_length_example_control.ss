@@ -2,7 +2,7 @@
 #Stock Synthesis (SS) is a work of the U.S. Government and is not subject to copyright protection in the United States.
 #Foreign copyrights may apply. See copyright.txt for more information.
 #_user_support_available_at:NMFS.Stock.Synthesis@noaa.gov
-#_user_info_available_at:https://vlab.ncep.noaa.gov/group/stock-synthesis
+#_user_info_available_at:https://vlab.noaa.gov/group/stock-synthesis
 #C control file for model showing different selectivities
 #_data_and_control_files: selex_length_dat.ss // selex_length_ctl.ss
 0  # 0 means do not read wtatage.ss; 1 means read and use wtatage.ss and also read and use growth parameters
