@@ -1,4 +1,4 @@
-#V3.30.16.00;_2020_09_03;_safe;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_12.2
+#V3.30.17.00;_2021_06_11;_safe;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_12.3
 #Stock Synthesis (SS) is a work of the U.S. Government and is not subject to copyright protection in the United States.
 #Foreign copyrights may apply. See copyright.txt for more information.
 #_user_support_available_at:NMFS.Stock.Synthesis@noaa.gov
@@ -45,8 +45,8 @@
 #_Prior_codes:  0=none; 6=normal; 1=symmetric beta; 2=CASAL's beta; 3=lognormal; 4=lognormal with biascorr; 5=gamma
 #
 # setup for M, growth, wt-len, maturity, fecundity, (hermaphro), recr_distr, cohort_grow, (movement), (age error), (catch_mult), sex ratio 
-#
-0 #_natM_type:_0=1Parm; 1=N_breakpoints;_2=Lorenzen;_3=agespecific;_4=agespec_withseasinterpolate
+#_NATMORT
+0 #_natM_type:_0=1Parm; 1=N_breakpoints;_2=Lorenzen;_3=agespecific;_4=agespec_withseasinterpolate;_5=BETA:_Maunder_link_to_maturity
   #_no additional input for selected M option; read 1P per morph
 #
 1 # GrowthModel: 1=vonBert with L1&L2; 2=Richards with L1&L2; 3=age_specific_K_incr; 4=age_specific_K_decr; 5=age_specific_K_each; 6=NA; 7=NA; 8=growth cessation
@@ -62,12 +62,13 @@
 1 #_First_Mature_Age
 1 #_fecundity option:(1)eggs=Wt*(a+b*Wt);(2)eggs=a*L^b;(3)eggs=a*Wt^b; (4)eggs=a+b*L; (5)eggs=a+b*W
 0 #_hermaphroditism option:  0=none; 1=female-to-male age-specific fxn; -1=male-to-female age-specific fxn
-1 #_parameter_offset_approach for M, G, CV_G:  1- direct, no offset; 2- male=fem_parm*exp(male_parm); 3: male=female*exp(parm) then old=young*exp(parm)
+1 #_parameter_offset_approach for M, G, CV_G:  1- direct, no offset**; 2- male=fem_parm*exp(male_parm); 3: male=female*exp(parm) then old=young*exp(parm)
+#_** in option 1, any male parameter with value = 0.0 and phase <0 is set equal to female parameter
 #
 #_growth_parms
 #_ LO HI INIT PRIOR PR_SD PR_type PHASE env_var&link dev_link dev_minyr dev_maxyr dev_PH Block Block_Fxn
 # Sex: 1  BioPattern: 1  NatMort
- 0.05 0.15 0.1 0.1 0.8 0 -3 0 0 0 0 0 0 0 # NatM_p_1_Fem_GP_1
+ 0.05 0.15 0.1 0.1 0.8 0 -3 0 0 0 0 0 0 0 # NatM_uniform_Fem_GP_1
 # Sex: 1  BioPattern: 1  Growth
  -10 45 21.6552 36 10 6 -2 0 0 0 0 0 0 0 # L_at_Amin_Fem_GP_1
  40 90 71.6492 70 10 6 -4 0 0 0 0 0 0 0 # L_at_Amax_Fem_GP_1
@@ -83,9 +84,9 @@
  -3 3 1 1 0.8 0 -3 0 0 0 0 0 0 0 # Eggs/kg_inter_Fem_GP_1
  -3 3 0 0 0.8 0 -3 0 0 0 0 0 0 0 # Eggs/kg_slope_wt_Fem_GP_1
 # Sex: 2  BioPattern: 1  NatMort
- 0.05 0.15 0.1 0.1 0.8 0 -3 0 0 0 0 0 0 0 # NatM_p_1_Mal_GP_1
+ 0.05 0.15 0.1 0.1 0.8 0 -3 0 0 0 0 0 0 0 # NatM_uniform_Mal_GP_1
 # Sex: 2  BioPattern: 1  Growth
- 1 45 0 36 10 0 -3 0 0 0 0 0 0 0 # L_at_Amin_Mal_GP_1
+ 0 45 0 36 10 0 -3 0 0 0 0 0 0 0 # L_at_Amin_Mal_GP_1
  40 90 69.5361 70 10 6 -4 0 0 0 0 0 0 0 # L_at_Amax_Mal_GP_1
  0.05 0.25 0.163516 0.15 0.8 6 -4 0 0 0 0 0 0 0 # VonBert_K_Mal_GP_1
  0.05 0.25 0.1 0.1 0.8 0 -3 0 0 0 0 0 0 0 # CV_young_Mal_GP_1
@@ -149,8 +150,7 @@
 #
 # all recruitment deviations
 #  1971R 1972R 1973R 1974R 1975R 1976R 1977R 1978R 1979R 1980R 1981R 1982R 1983R 1984R 1985R 1986R 1987R 1988R 1989R 1990R 1991R 1992R 1993R 1994R 1995R 1996R 1997R 1998R 1999R 2000R 2001R 2002F 2003F 2004F 2005F 2006F 2007F 2008F 2009F 2010F 2011F
-#  0.177904 -0.0977745 0.0417631 -0.30636 0.323543 0.166863 0.520225 -0.518331 0.589664 -0.218869 0.160331 -0.226304 -0.42619 -0.613983 0.58044 0.401447 0.0798448 0.184367 -0.355343 0.590506 -0.608373 -0.111175 -0.751971 0.37205 -0.64155 0.874421 0.895215 -0.414685 -0.679256 0.251538 -0.23996 0 0 0 0 0 0 0 0 0 0
-# implementation error by year in forecast:  0 0 0 0 0 0 0 0 0 0
+#  0.177904 -0.0977744 0.0417631 -0.30636 0.323543 0.166863 0.520225 -0.518331 0.589664 -0.218869 0.160331 -0.226304 -0.42619 -0.613983 0.58044 0.401447 0.0798449 0.184367 -0.355343 0.590506 -0.608373 -0.111175 -0.751971 0.37205 -0.64155 0.874421 0.895215 -0.414685 -0.679256 0.251538 -0.23996 0 0 0 0 0 0 0 0 0 0
 #
 #Fishing Mortality info 
 0.3 # F ballpark value in units of annual_F
@@ -162,10 +162,11 @@
 # if Fmethod=3; read N iterations for tuning for Fmethod 3
 4  # N iterations for tuning F in hybrid method (recommend 3 to 7)
 #
-#_initial_F_parms; count = 0
+#_initial_F_parms; for each fleet x season that has init_catch; nest season in fleet; count = 0
+#_for unconstrained init_F, use an arbitrary initial catch and set lambda=0 for its logL
 #_ LO HI INIT PRIOR PR_SD  PR_type  PHASE
-#2011 2052
-# F rates by fleet
+#
+# F rates by fleet x season
 # Yr:  1971 1972 1973 1974 1975 1976 1977 1978 1979 1980 1981 1982 1983 1984 1985 1986 1987 1988 1989 1990 1991 1992 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011
 # seas:  1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
 # FISHERY1 0 0.00180712 0.00908217 0.00916357 0.0185719 0.0285438 0.0393364 0.051399 0.0648864 0.0922941 0.126004 0.140118 0.157325 0.175452 0.200131 0.227686 0.275563 0.292306 0.310299 0.308785 0.300559 0.216021 0.231858 0.232605 0.243049 0.265838 0.215116 0.228817 0.23055 0.24169 0.238888 6.93917e-06 0.0130708 0.0237211 0.0307653 0.0355291 0.0389269 0.0416786 0.0441351 0.0463925 0.0485372
@@ -192,6 +193,7 @@
 #_size_selex_patterns
 #Pattern:_0;  parm=0; selex=1.0 for all sizes
 #Pattern:_1;  parm=2; logistic; with 95% width specification
+#Pattern:_2;  parm=6; modification of pattern 24 with improved sex-specific offset
 #Pattern:_5;  parm=2; mirror another size selex; PARMS pick the min-max bin to mirror
 #Pattern:_11; parm=2; selex=1.0  for specified min-max population length bin range
 #Pattern:_15; parm=0; mirror another age or length selex
@@ -203,9 +205,9 @@
 #Pattern:_22; parm=4; double_normal as in CASAL
 #Pattern:_23; parm=6; double_normal where final value is directly equal to sp(6) so can be >1.0
 #Pattern:_24; parm=6; double_normal with sel(minL) and sel(maxL), using joiners
-#Pattern:_25; parm=3; exponential-logistic in size
-#Pattern:_27; parm=3+special; cubic spline 
-#Pattern:_42; parm=2+special+3; // like 27, with 2 additional param for scaling (average over bin range)
+#Pattern:_25; parm=3; exponential-logistic in length
+#Pattern:_27; parm=special+3; cubic spline in length; parm1==1 resets knots; parm1==2 resets all 
+#Pattern:_42; parm=special+3+2; cubic spline; like 27, with 2 additional param for scaling (average over bin range)
 #_discard_options:_0=none;_1=define_retention;_2=retention&mortality;_3=all_discarded_dead;_4=define_dome-shaped_retention
 #_Pattern Discard Male Special
  0 0 0 0 # 1 FISHERY1
@@ -227,7 +229,7 @@
 #Pattern:_19; parm=6; simple 4-parm double logistic with starting age
 #Pattern:_20; parm=6; double_normal,using joiners
 #Pattern:_26; parm=3; exponential-logistic in age
-#Pattern:_27; parm=3+special; cubic spline in age
+#Pattern:_27; parm=3+special; cubic spline in age; parm1==1 resets knots; parm1==2 resets all 
 #Pattern:_42; parm=2+special+3; // cubic spline; with 2 additional param for scaling (average over bin range)
 #Age patterns entered with value >100 create Min_selage from first digit and pattern from remainder
 #_Pattern Discard Male Special
@@ -243,7 +245,7 @@
          -1000            10             0         -1000             3             0         -2          0          0          0          0          0          0          0  #  AgeSel_P1_FISHERY1(1)
            -10            10       8.12465             3             3             0          2          0          0       1948       2011          4          0          0  #  AgeSel_P2_FISHERY1(1)
            -10            10        1.0328             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P3_FISHERY1(1)
-           -10            10     0.0879167             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P4_FISHERY1(1)
+           -10            10     0.0879168             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P4_FISHERY1(1)
            -10            10      0.855116             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P5_FISHERY1(1)
            -10            10         0.328             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P6_FISHERY1(1)
            -10            10     0.0962406             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P7_FISHERY1(1)
@@ -253,7 +255,7 @@
            -10            10             0             0             3             0         -5          0          0          0          0       0.25          0          0  #  AgeSel_P11_FISHERY1(1)
 # 2   SURVEY1 AgeSelex
          -1000            10             0         -1000             3             0         -2          0          0          0          0          0          0          0  #  AgeSel_P1_SURVEY1(2)
-           -10            10       7.48896             3             3             0          2          0          0       1948       2011          4          0          0  #  AgeSel_P2_SURVEY1(2)
+           -10            10         7.489             3             3             0          2          0          0       1948       2011          4          0          0  #  AgeSel_P2_SURVEY1(2)
            -10            10      0.639258             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P3_SURVEY1(2)
            -10            10        0.8463             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P4_SURVEY1(2)
            -10            10     -0.417476             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P5_SURVEY1(2)
@@ -266,6 +268,7 @@
 # 3   SURVEY2 AgeSelex
              0            40             0             5            99             0        -99          0          0          0          0          0          0          0  #  minage@sel=1_SURVEY2(3)
              0            40             0             6            99             0        -99          0          0          0          0          0          0          0  #  maxage@sel=1_SURVEY2(3)
+#_No_Dirichlet parameters
 #_no timevary selex parameters
 #
 0   #  use 2D_AR1 selectivity(0/1)
@@ -315,7 +318,7 @@
 #  1 1 1 1 #_parameter-dev-vectors
 #  1 1 1 1 #_crashPenLambda
 #  0 0 0 0 # F_ballpark_lambda
-1 # (0/1/2) read specs for more stddev reporting: 0 = skip, 1 = read specs for reporting stdev for selectivity, size, and numbers, 2 = add options for M and Dyn Bzero
+1 # (0/1/2) read specs for more stddev reporting: 0 = skip, 1 = read specs for reporting stdev for selectivity, size, and numbers, 2 = add options for M,Dyn. Bzero, SmryBio
  1 2 -1 5 # Selectivity: (1) 0 to skip or fleet, (2) 1=len/2=age/3=combined, (3) year, (4) N selex bins; NOTE: combined reports in age bins
  0 0 # Growth: (1) 0 to skip or growth pattern, (2) growth ages; NOTE: does each sex
  1 -1 5 # Numbers-at-age: (1) 0 or area(-1 for all), (2) year, (3) N ages;  NOTE: sums across morphs
