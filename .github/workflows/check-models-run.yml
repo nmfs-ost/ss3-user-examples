@@ -17,8 +17,8 @@ jobs:
       - name: setup R  
         uses: r-lib/actions/setup-r@master
         
-      - name: Get the 3.30.16 SS executable
-        run:  wget -O ss https://github.com/nmfs-stock-synthesis/stock-synthesis/releases/download/v3.30.16/ss_linux
+      - name: Get the 3.30.17 SS executable
+        run:  wget -O ss https://vlab.noaa.gov/documents/259399/15691896/ss_linux/b218af0a-21fb-558f-de26-020ec6d6ae54?version=1.0&t=1623428432813&download=true
           
       - name: change permissions on ss exes
         run: |
