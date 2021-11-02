@@ -3,6 +3,8 @@
 This repository contains examples of stock synthesis models for users. The [model metadata](#metadata-for-example-models) more fully describes key features of the examples. 
 
 # Table of Contents
+
+-   [How to download](#how-to-download)
 -   [Do these models always use Stock Synthesis best practices?](#do-these-models-always-use-stock-synthesis-best-practices)
 -   [How can I submit my model to be a user example?](#how-can-i-submit-my-model-to-be-a-user-example)
 -   [How do I request a certain type of example?](#how-do-i-request-a-certain-type-of-example)
@@ -10,6 +12,12 @@ This repository contains examples of stock synthesis models for users. The [mode
 -   [Selectivity examples](#selectivity-examples)
 -   [Contributing guide](#contributing-guide)
 -   [Disclaimer](#disclaimer)
+
+# How to download
+
+Github currently does not have an option to download single files, so either [clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) or download the entire user-examples repository. To get a .zip file of the repository, click on the "code" button on the main page, then the "Download ZIP" button.
+
+![Screenshot showing the code and download ZIP buttons circled in red.](figures/github_zip_download.PNG?raw=true)
 
 # Do these models always use Stock Synthesis best practices?
 
