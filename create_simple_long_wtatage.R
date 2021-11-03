@@ -28,7 +28,15 @@ ctl[["stddev_reporting_specs"]] <- NULL
 ctl[["stddev_reporting_selex"]] <- NULL
 ctl[["stddev_reporting_growth"]] <- NULL
 ctl[["stddev_reporting_N_at_A"]] <- NULL
-
+# turn off size selectivity
+ctl$size_selex_types$Pattern <- 0
+ctl$size_selex_parms <- NULL
+# turn off estimating steepness
+ctl$SR_parms[2, "PHASE"] <- -4
+# turn off estimating q, because just goes to the lowest bound
+q_row <- grep("LnQ_base_SURVEY2(3)", row.names(ctl$Q_parms),fixed = T)
+ctl$Q_parms[q_row, "PHASE"] <- -4
+ctl$Q_parms[q_row, "INIT"] <- -7.9
 SS_writectl(ctl, file.path(new_mod, "control.ss"), overwrite = TRUE)
 
 # run model to test ----
@@ -43,10 +51,8 @@ SS_plots(out)
 tmp_folder <- file.path("model_files", "tmp_mod")
 copy_SS_inputs(dir.old = new_mod, dir.new = tmp_folder)
 file.copy(file.path(new_mod, "ss_summary.sso"), file.path(tmp_folder, "ss_summary.sso"))
-file.remove(list.files(path = new_mod, full.names = TRUE, recursive = TRUE, 
-                       include.dirs = TRUE))
-unlink(new_mod)
+unlink(new_mod, recursive = TRUE)
 copy_SS_inputs(dir.old = tmp_folder, dir.new = new_mod)
 file.copy(file.path(tmp_folder, "ss_summary.sso"), file.path(new_mod, "ss_summary.sso"))
-unlink(tmp_folder)
+unlink(tmp_folder, recursive = TRUE)
             
