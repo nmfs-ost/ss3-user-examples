@@ -38,6 +38,8 @@ First, please take a look at the current examples available and their [notable f
 | --- | --- |
 | simple						  | Long-standing example model. Includes most data types | 
 | simple_with_discard             | "simple" with discard data added |
+| simple_long | Simple with a longer time series and best practices |
+| simple_long_wtatage | simple_long but uses empirical weight-at-age |
 | empirical_wtatage_and_age_selex | Uses empirical weight-at-age, based on "simple" |
 | selex_age_example				  | Illustrates setup for 6 age-based selectivity types. [More detail below.](#selectivity-examples)|
 | selex_length_example			  | Illustrates setup for 6 length-based selectivity types. [More detail below.](#selectivity-examples)|
