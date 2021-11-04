@@ -83,7 +83,7 @@
 0 # future feature: 0/1 to make realized sigmaR a function of SR curvature
 #_LO	HI	INIT	PRIOR	PR_SD	PR_type	PHASE	env-var	use_dev	dev_mnyr	dev_mxyr	dev_PH	Block	Blk_Fxn # parm_name
  3.0	31	12.000000	10.3	10.00	0	  1	0	0	0	0	0	0	0	#_SR_LN(R0)  
- 0.2	 1	 0.614248	 0.7	 0.05	1	 -4	0	0	0	0	0	0	0	#_SR_BH_steep
+ 0.2	 1	 0.614248	 0.7	 0.05	1	  4	0	0	0	0	0	0	0	#_SR_BH_steep
  0.0	 2	 0.600000	 0.8	 0.80	0	 -4	0	0	0	0	0	0	0	#_SR_sigmaR  
 -5.0	 5	 0.000000	 0.0	 1.00	0	 -4	0	0	0	0	0	0	0	#_SR_regime  
  0.0	 0	 0.000000	 0.0	 0.00	0	-99	0	0	0	0	0	0	0	#_SR_autocorr
@@ -130,7 +130,7 @@
 #_LO	HI	INIT	PRIOR	PR_SD	PR_type	PHASE	env-var	use_dev	dev_mnyr	dev_mxyr	dev_PH	Block	Blk_Fxn  #  parm_name
 -7	5.0	 0.516018	0.00	1	0	 1	0	0	0	0	0	0	0	#_LnQ_base_SURVEY1(2) 
  0	0.5	 0.000000	0.05	1	0	-4	0	0	0	0	0	0	0	#_Q_extraSD_SURVEY1(2)
--8	5.0	-6.628100	0.00	1	0	 1	0	0	0	0	0	0	0	#_LnQ_base_SURVEY2(3) 
+-7	5.0	-6.628100	0.00	1	0	 1	0	0	0	0	0	0	0	#_LnQ_base_SURVEY2(3) 
 #_no timevary Q parameters
 #
 #_size_selex_patterns
@@ -141,19 +141,19 @@
 #
 #_age_selex_patterns
 #_Pattern	Discard	Male	Special
-11	0	0	0	#_1 FISHERY
-11	0	0	0	#_2 SURVEY1
+12	0	0	0	#_1 FISHERY
+12	0	0	0	#_2 SURVEY1
 11	0	0	0	#_3 SURVEY2
 #
 #_SizeSelex
 #_No size_selex_parm
 #_AgeSelex
-0	40	 0	5	99	0	-99	0	0	0	0	0	0	0	#_AgeSel_P_1_FISHERY(1)
-0	40	40	6	99	0	-99	0	0	0	0	0	0	0	#_AgeSel_P_2_FISHERY(1)
-0	40	 0	5	99	0	-99	0	0	0	0	0	0	0	#_AgeSel_P_1_SURVEY1(2)
-0	40	40	6	99	0	-99	0	0	0	0	0	0	0	#_AgeSel_P_2_SURVEY1(2)
-0	40	 0	5	99	0	-99	0	0	0	0	0	0	0	#_AgeSel_P_1_SURVEY2(3)
-0	40	 0	6	99	0	-99	0	0	0	0	0	0	0	#_AgeSel_P_2_SURVEY2(3)
+0.001	30	10	50	 0.01	0	  2	0	0	0	0	0	0	0	#_AgeSel_P_1_FISHERY(1)
+0.001	20	10	15	 0.01	0	  3	0	0	0	0	0	0	0	#_AgeSel_P_2_FISHERY(1)
+0.001	30	10	30	 0.01	0	  2	0	0	0	0	0	0	0	#_AgeSel_P_1_SURVEY1(2)
+0.001	20	10	10	 0.01	0	  3	0	0	0	0	0	0	0	#_AgeSel_P_2_SURVEY1(2)
+0.000	40	 0	 5	99.00	0	-99	0	0	0	0	0	0	0	#_AgeSel_P_1_SURVEY2(3)
+0.000	40	 0	 6	99.00	0	-99	0	0	0	0	0	0	0	#_AgeSel_P_2_SURVEY2(3)
 #_no timevary selex parameters
 #
 0 #  use 2D_AR1 selectivity(0/1):  experimental feature

@@ -20,7 +20,7 @@ file.copy(from = file.path(new_mod, "wtatage.ss_new"),
           to = file.path(new_mod, "wtatage.ss"))
 # read in data and ctl file
 dat <- SS_readdat(file.path(new_mod, "data.ss"))
-ctl <- SS_readctl(file.path(new_mod, "control.ss"), datlist = dat )
+ctl <- SS_readctl(file.path(new_mod, "control.ss"), datlist = dat)
 ctl[["EmpiricalWAA"]] <- 1
 # turn of stddev reporting
 ctl[["more_stddev_reporting"]] <- 0
@@ -28,15 +28,25 @@ ctl[["stddev_reporting_specs"]] <- NULL
 ctl[["stddev_reporting_selex"]] <- NULL
 ctl[["stddev_reporting_growth"]] <- NULL
 ctl[["stddev_reporting_N_at_A"]] <- NULL
+
+ctl$age_selex_types$Pattern <- c(rep(12, 2), rep(11, 1))
+# add age selectivity params
+tmp_age_selex_parms <- rbind(ctl$size_selex_parms, ctl$age_selex_parms[5:6,])
+rownames(tmp_age_selex_parms) <- gsub("Size", "Age", rownames(tmp_age_selex_parms))
+tmp_age_selex_parms[c(1, 3), "LO"] <- 0.001
+tmp_age_selex_parms[c(1, 3), "HI"] <- 30
+tmp_age_selex_parms[c(1, 3), "INIT"] <- 10
+tmp_age_selex_parms[c(1, 3), "PR_type"] <- 00
+tmp_age_selex_parms[c(2, 4), "LO"] <- 0.001
+tmp_age_selex_parms[c(2, 4), "HI"] <- 20
+tmp_age_selex_parms[c(2, 4), "INIT"] <- 10
+tmp_age_selex_parms[c(2, 4), "PR_type"] <- 0
+
+ctl$age_selex_parms <- tmp_age_selex_parms
+
 # turn off size selectivity
 ctl$size_selex_types$Pattern <- 0
 ctl$size_selex_parms <- NULL
-# turn off estimating steepness
-ctl$SR_parms[2, "PHASE"] <- -4
-# turn off estimating q, because just goes to the lowest bound
-q_row <- grep("LnQ_base_SURVEY2(3)", row.names(ctl$Q_parms),fixed = T)
-ctl$Q_parms[q_row, "PHASE"] <- -4
-ctl$Q_parms[q_row, "INIT"] <- -7.9
 SS_writectl(ctl, file.path(new_mod, "control.ss"), overwrite = TRUE)
 
 # run model to test ----
