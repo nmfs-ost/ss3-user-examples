@@ -15,9 +15,11 @@ This repository contains examples of stock synthesis models for users. The [mode
 
 # How to download
 
-Github currently does not have an option to download single files, so either [clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) or download the entire user-examples repository. To get a .zip file of the repository, click on the "code" button on the main page, then the "Download ZIP" button.
+The simplest methos is to [clone](https://docs.github.com/en/repositories/creating-and-managing-repositories/cloning-a-repository) or download the entire user-examples repository. To get a .zip file of the repository, click on the "code" button on the main page, then the "Download ZIP" button.
 
 ![Screenshot showing the code and download ZIP buttons circled in red.](figures/github_zip_download.PNG?raw=true)
+
+There are also some options to [download individual files](https://careerkarma.com/blog/git-download-a-single-file-from-github/).
 
 # Do these models always use Stock Synthesis best practices?
 
