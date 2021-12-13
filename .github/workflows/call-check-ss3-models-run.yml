@@ -3,8 +3,12 @@ name: call-check-ss3-models-run
 on:
   workflow_dispatch:
   pull_request:
+    paths:
+      - 'model_files/**'
     branches: [main]
   push:
+    paths:
+      - 'model_files/**'
     branches: [main]
 jobs:
   call-workflow:
