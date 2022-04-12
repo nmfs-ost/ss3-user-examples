@@ -1,4 +1,4 @@
-#V3.30.18.00;_safe;_compile_date:_Sep 30 2021;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_12.3
+#V3.30.19.00;_safe;_compile_date:_Apr  4 2022;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_12.3
 #_Stock_Synthesis_is_a_work_of_the_U.S._Government_and_is_not_subject_to_copyright_protection_in_the_United_States.
 #_Foreign_copyrights_may_apply._See_copyright.txt_for_more_information.
 #_User_support_available_at:NMFS.Stock.Synthesis@noaa.gov
@@ -8,7 +8,7 @@
 #C control file for model showing different selectivities
 #_data_and_control_files: selex_age_example_data.ss // selex_age_example_control.ss
 0  # 0 means do not read wtatage.ss; 1 means read and use wtatage.ss and also read and use growth parameters
-1  #_N_Growth_Patterns (Growth Patterns, Morphs, Bio Patterns, GP are terms used interchangeably in SS)
+1  #_N_Growth_Patterns (Growth Patterns, Morphs, Bio Patterns, GP are terms used interchangeably in SS3)
 1 #_N_platoons_Within_GrowthPattern 
 #_Cond 1 #_Platoon_within/between_stdev_ratio (no read if N_platoons=1)
 #_Cond  1 #vector_platoon_dist_(-1_in_first_val_gives_normal_approx)
@@ -120,7 +120,7 @@
 0  # 0/1 to use steepness in initial equ recruitment calculation
 0  #  future feature:  0/1 to make realized sigmaR a function of SR curvature
 #_          LO            HI          INIT         PRIOR         PR_SD       PR_type      PHASE    env-var    use_dev   dev_mnyr   dev_mxyr     dev_PH      Block    Blk_Fxn #  parm_name
-             3            31           9.1          10.3            10             0          1          0          0          0          0          0          0          0 # SR_LN(R0)
+             3            31       9.28052          10.3            10             0          1          0          0          0          0          0          0          0 # SR_LN(R0)
            0.2             1          0.75           0.7          0.05             1         -4          0          0          0          0          0          0          0 # SR_BH_steep
              0             2           0.6           0.8           0.8             0         -4          0          0          0          0          0          0          0 # SR_sigmaR
             -5             5             0             0             1             0         -4          0          0          0          0          0          0          0 # SR_regime
@@ -138,7 +138,7 @@
 #_Cond 1001 #_last_yr_nobias_adj_in_MPD; begin of ramp
 #_Cond 1981 #_first_yr_fullbias_adj_in_MPD; begin of plateau
 #_Cond 2010 #_last_yr_fullbias_adj_in_MPD
-#_Cond 2013 #_end_yr_for_ramp_in_MPD (can be in forecast to shape ramp, but SS sets bias_adj to 0.0 for fcast yrs)
+#_Cond 2013 #_end_yr_for_ramp_in_MPD (can be in forecast to shape ramp, but SS3 sets bias_adj to 0.0 for fcast yrs)
 #_Cond 1 #_max_bias_adj_in_MPD (typical ~0.8; -3 sets all years to 0.0; -2 sets all non-forecast yrs w/ estimated recdevs to 1.0; -1 sets biasadj=1.0 for all yrs w/ recdevs)
 #_Cond 0 #_period of cycles in recruitment (N parms read below)
 #_Cond -5 #min rec_dev
@@ -167,11 +167,11 @@
 # F rates by fleet x season
 # Yr:  2001 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013
 # seas:  1 1 1 1 1 1 1 1 1 1 1 1 1
-# Type12_age_logistic 0.0400383 0.0473666 0.0561693 0.0664769 0.0783264 0.0918436 0.107394 0.125613 0.147382 0.173968 0.207294 0.250418 0.250418
-# Type14_age_non-parametric 0.0480835 0.0570703 0.0679686 0.0807732 0.0953865 0.111804 0.130344 0.1517 0.176873 0.207342 0.245167 0.293399 0.293399
-# Type17_age_random-walk 0.0465074 0.0542393 0.062831 0.0721004 0.082024 0.0928285 0.104977 0.119059 0.13576 0.156012 0.181173 0.213359 0.213359
-# Type20_age_double-normal 0.0464897 0.0555725 0.0668186 0.0803221 0.0961725 0.114592 0.136132 0.161854 0.193377 0.232972 0.284013 0.351803 0.351803
-# Type25_age_exponential-logistic 0.0423462 0.0494436 0.057494 0.0663212 0.0758331 0.0861143 0.0974653 0.110358 0.125374 0.143243 0.16497 0.192038 0.192038
+# Type12_age_logistic 0.0344753 0.0396466 0.045469 0.0518059 0.0585095 0.0654701 0.0726616 0.0801293 0.0879322 0.0961225 0.104752 0.113884 0.113884
+# Type14_age_non-parametric 0.0396286 0.0455463 0.0521584 0.0592781 0.0666894 0.0742461 0.0819382 0.0898518 0.0980818 0.106746 0.115934 0.125717 0.125717
+# Type17_age_random-walk 0.0481487 0.0554826 0.0638164 0.0729889 0.082728 0.0928461 0.103322 0.11422 0.125597 0.137552 0.150204 0.1636 0.1636
+# Type20_age_double-normal 0.0340785 0.0391888 0.0449383 0.0511855 0.0577847 0.0646333 0.0717054 0.0790474 0.0867272 0.0947967 0.103306 0.112315 0.112315
+# Type25_age_exponential-logistic 0.0365081 0.0421196 0.0485288 0.0556025 0.0631751 0.0711086 0.0793461 0.0879183 0.096891 0.106328 0.11629 0.126845 0.126845
 # Type27_age_cubic-spline 0 0 0 0 0 0 0 0 0 0 0 0 0
 #
 #_Q_setup for fleets with cpue or survey data
@@ -187,13 +187,12 @@
 #
 #_Q_parms(if_any);Qunits_are_ln(q)
 #_          LO            HI          INIT         PRIOR         PR_SD       PR_type      PHASE    env-var    use_dev   dev_mnyr   dev_mxyr     dev_PH      Block    Blk_Fxn  #  parm_name
-           -25            25      -7.61189             0             1             0         -1          0          0          0          0          0          0          0  #  LnQ_base_Type12_age_logistic(1)
+           -25            25      -7.95419             0             1             0         -1          0          0          0          0          0          0          0  #  LnQ_base_Type12_age_logistic(1)
 #_no timevary Q parameters
 #
 #_size_selex_patterns
 #Pattern:_0;  parm=0; selex=1.0 for all sizes
 #Pattern:_1;  parm=2; logistic; with 95% width specification
-#Pattern:_2;  parm=6; modification of pattern 24 with improved sex-specific offset
 #Pattern:_5;  parm=2; mirror another size selex; PARMS pick the min-max bin to mirror
 #Pattern:_11; parm=2; selex=1.0  for specified min-max population length bin range
 #Pattern:_15; parm=0; mirror another age or length selex
@@ -205,6 +204,7 @@
 #Pattern:_22; parm=4; double_normal as in CASAL
 #Pattern:_23; parm=6; double_normal where final value is directly equal to sp(6) so can be >1.0
 #Pattern:_24; parm=6; double_normal with sel(minL) and sel(maxL), using joiners
+#Pattern:_2;  parm=6; double_normal with sel(minL) and sel(maxL), using joiners, back compatibile version of 24 with 3.30.18 and older
 #Pattern:_25; parm=3; exponential-logistic in length
 #Pattern:_27; parm=special+3; cubic spline in length; parm1==1 resets knots; parm1==2 resets all 
 #Pattern:_42; parm=special+3+2; cubic spline; like 27, with 2 additional param for scaling (average over bin range)
@@ -222,7 +222,7 @@
 #Pattern:_10; parm=0; selex=1.0 for ages 1 to maxage
 #Pattern:_11; parm=2; selex=1.0  for specified min-max age
 #Pattern:_12; parm=2; age logistic
-#Pattern:_13; parm=8; age double logistic
+#Pattern:_13; parm=8; age double logistic. Recommend using pattern 18 instead.
 #Pattern:_14; parm=nages+1; age empirical
 #Pattern:_15; parm=0; mirror another age or length selex
 #Pattern:_16; parm=2; Coleraine - Gaussian
@@ -251,8 +251,8 @@
 # 5   Type25_age_exponential-logistic LenSelex
 # 6   Type27_age_cubic-spline LenSelex
 # 1   Type12_age_logistic AgeSelex
-             1            20             5             5          0.01             1          2          0          0          0          0          0          0          0  #  Age_inflection_Type12_age_logistic(1)
-          0.01            10             2             2          0.01             1          3          0          0          0          0          0          0          0  #  Age_95%width_Type12_age_logistic(1)
+             1            20       5.27845             5          0.01             1          2          0          0          0          0          0          0          0  #  Age_inflection_Type12_age_logistic(1)
+          0.01            10       2.51824             2          0.01             1          3          0          0          0          0          0          0          0  #  Age_95%width_Type12_age_logistic(1)
 # 2   Type14_age_non-parametric AgeSelex
             -5             9            -5             0           0.5             0         -2          0          0          0          0          0          0          0  #  AgeSel_P1_Type14_age_non-parametric(2)
             -5             9            -5             0           0.5             0         -2          0          0          0          0          0          0          0  #  AgeSel_P2_Type14_age_non-parametric(2)
@@ -277,37 +277,37 @@
             -5             9            -1             0           0.5             0         -2          0          0          0          0          0          0          0  #  AgeSel_P21_Type14_age_non-parametric(2)
 # 3   Type17_age_random-walk AgeSelex
          -1002             3         -1000             0           0.5             0        -99          0          0          0          0          0          0          0  #  AgeSel_P1_Type17_age_random-walk(3)
-            -3             3           0.5             0           0.5             0          2          0          0          0          0          0          0          0  #  AgeSel_P2_Type17_age_random-walk(3)
-            -3             3             2             0           0.5             0          2          0          0          0          0          0          0          0  #  AgeSel_P3_Type17_age_random-walk(3)
-            -3             3             1             0           0.5             0          2          0          0          0          0          0          0          0  #  AgeSel_P4_Type17_age_random-walk(3)
-            -3             3             1             0           0.5             0          2          0          0          0          0          0          0          0  #  AgeSel_P5_Type17_age_random-walk(3)
-            -3             3           0.8             0           0.5             0          2          0          0          0          0          0          0          0  #  AgeSel_P6_Type17_age_random-walk(3)
-            -3             3           0.4             0           0.5             0          2          0          0          0          0          0          0          0  #  AgeSel_P7_Type17_age_random-walk(3)
-            -3             3           0.1             0           0.5             0          2          0          0          0          0          0          0          0  #  AgeSel_P8_Type17_age_random-walk(3)
-            -3             3          0.05             0           0.5             0          2          0          0          0          0          0          0          0  #  AgeSel_P9_Type17_age_random-walk(3)
-            -3             3          -0.1             0           0.5             0          2          0          0          0          0          0          0          0  #  AgeSel_P10_Type17_age_random-walk(3)
-            -3             3          -0.5             0           0.5             0          2          0          0          0          0          0          0          0  #  AgeSel_P11_Type17_age_random-walk(3)
+            -3             3  -0.000590459             0           0.5             0          2          0          0          0          0          0          0          0  #  AgeSel_P2_Type17_age_random-walk(3)
+            -3             3       1.49743             0           0.5             0          2          0          0          0          0          0          0          0  #  AgeSel_P3_Type17_age_random-walk(3)
+            -3             3       1.08608             0           0.5             0          2          0          0          0          0          0          0          0  #  AgeSel_P4_Type17_age_random-walk(3)
+            -3             3       1.01782             0           0.5             0          2          0          0          0          0          0          0          0  #  AgeSel_P5_Type17_age_random-walk(3)
+            -3             3      0.833281             0           0.5             0          2          0          0          0          0          0          0          0  #  AgeSel_P6_Type17_age_random-walk(3)
+            -3             3      0.427972             0           0.5             0          2          0          0          0          0          0          0          0  #  AgeSel_P7_Type17_age_random-walk(3)
+            -3             3     0.0664236             0           0.5             0          2          0          0          0          0          0          0          0  #  AgeSel_P8_Type17_age_random-walk(3)
+            -3             3      0.267761             0           0.5             0          2          0          0          0          0          0          0          0  #  AgeSel_P9_Type17_age_random-walk(3)
+            -3             3      0.425744             0           0.5             0          2          0          0          0          0          0          0          0  #  AgeSel_P10_Type17_age_random-walk(3)
+            -3             3     -0.342309             0           0.5             0          2          0          0          0          0          0          0          0  #  AgeSel_P11_Type17_age_random-walk(3)
 # 4   Type20_age_double-normal AgeSelex
-             1            20             8             6             5             0          2          0          0          0          0          0          0          0  #  Age_DblN_peak_Type20_age_double-normal(4)
-            -7             7            -2          -0.5             2             0          3          0          0          0          0          0          0          0  #  Age_DblN_top_logit_Type20_age_double-normal(4)
-            -5            10             2          1.75             5             0          3          0          0          0          0          0          0          0  #  Age_DblN_ascend_se_Type20_age_double-normal(4)
-            -5            10             3           0.1             2             0          4          0          0          0          0          0          0          0  #  Age_DblN_descend_se_Type20_age_double-normal(4)
+             1            20       7.83518             6             5             0          2          0          0          0          0          0          0          0  #  Age_DblN_peak_Type20_age_double-normal(4)
+            -7             7      0.937408          -0.5             2             0          3          0          0          0          0          0          0          0  #  Age_DblN_top_logit_Type20_age_double-normal(4)
+            -5            10       2.19074          1.75             5             0          3          0          0          0          0          0          0          0  #  Age_DblN_ascend_se_Type20_age_double-normal(4)
+            -5            10       2.64524           0.1             2             0          4          0          0          0          0          0          0          0  #  Age_DblN_descend_se_Type20_age_double-normal(4)
           -999            15          -999            -1             5             0        -99          0          0          0          0          0          0          0  #  Age_DblN_start_logit_Type20_age_double-normal(4)
-          -999            15             1             1             5             0          4          0          0          0          0          0          0          0  #  Age_DblN_end_logit_Type20_age_double-normal(4)
+          -999            15       6.83422             1             5             0          4          0          0          0          0          0          0          0  #  Age_DblN_end_logit_Type20_age_double-normal(4)
 # 5   Type25_age_exponential-logistic AgeSelex
-          0.02             1           0.9             0           0.5             0          2          0          0          0          0          0          0          0  #  AgeSel_P1_Type25_age_exponential-logistic(5)
-          0.01          0.99           0.4             0           0.5             0          2          0          0          0          0          0          0          0  #  AgeSel_P2_Type25_age_exponential-logistic(5)
-         0.001           0.6           0.1             0           0.5             0          2          0          0          0          0          0          0          0  #  AgeSel_P3_Type25_age_exponential-logistic(5)
+          0.02             1             1             0           0.5             0          2          0          0          0          0          0          0          0  #  AgeSel_P1_Type25_age_exponential-logistic(5)
+          0.01          0.99      0.628325             0           0.5             0          2          0          0          0          0          0          0          0  #  AgeSel_P2_Type25_age_exponential-logistic(5)
+         0.001           0.6    0.00100028             0           0.5             0          2          0          0          0          0          0          0          0  #  AgeSel_P3_Type25_age_exponential-logistic(5)
 # 6   Type27_age_cubic-spline AgeSelex
              0             2             0             0             0             0        -99          0          0          0          0          0          0          0  #  AgeSpline_Code_Type27_age_cubic-spline_6
-        -0.001            10             1             0           0.1             0          3          0          0          0          0          0          0          0  #  AgeSpline_GradLo_Type27_age_cubic-spline_6
+        -0.001            10       1.25246             0           0.1             0          3          0          0          0          0          0          0          0  #  AgeSpline_GradLo_Type27_age_cubic-spline_6
            -10          0.01             0             0           0.1             0         -3          0          0          0          0          0          0          0  #  AgeSpline_GradHi_Type27_age_cubic-spline_6
              1            20           0.5             0             0             0        -99          0          0          0          0          0          0          0  #  AgeSpline_Knot_1_Type27_age_cubic-spline_6
              1            20             7             0             0             0        -99          0          0          0          0          0          0          0  #  AgeSpline_Knot_2_Type27_age_cubic-spline_6
              1            20            15             0             0             0        -99          0          0          0          0          0          0          0  #  AgeSpline_Knot_3_Type27_age_cubic-spline_6
-            -5             5            -4             0             0             0          2          0          0          0          0          0          0          0  #  AgeSpline_Val_1_Type27_age_cubic-spline_6
+            -5             5      -4.99988             0             0             0          2          0          0          0          0          0          0          0  #  AgeSpline_Val_1_Type27_age_cubic-spline_6
             -5             5             0             0             0             0         -2          0          0          0          0          0          0          0  #  AgeSpline_Val_2_Type27_age_cubic-spline_6
-            -5             5          -0.1             0             0             0          2          0          0          0          0          0          0          0  #  AgeSpline_Val_3_Type27_age_cubic-spline_6
+            -5             5     -0.250257             0             0             0          2          0          0          0          0          0          0          0  #  AgeSpline_Val_3_Type27_age_cubic-spline_6
 #_No_Dirichlet parameters
 #_no timevary selex parameters
 #
