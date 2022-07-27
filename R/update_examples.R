@@ -1,9 +1,10 @@
 # update examples
-# code runs locally assuming the exe is in the system PATH.
+# code runs locally assuming the exe is in the system PATH and this repo is the working directory.
 
 # vals to change ----
 old_outer_folder_name <- "model_files"
 new_outer_folder_name <- "new_model_files"
+exe_name <- "ss_3.30.20"
 
 # Load pkgs, set options ----
 library(r4ss)
@@ -50,5 +51,9 @@ updated_results <- run_SS_models(dirvec = new_dirvec, model = exe_name, exe_in_p
 if(!all(updated_results$result == "ran model")) {
   stop("Not all new models ran successfully.")
 }
-#TODO: figure out way to automate adding ss_summary.sso from the test run to the 
-#updated_examples files, save new files to the original folder.
+
+# Note: after running this script and checking all the models ran successfully , I think you need to manually copy over the 
+# ss_summary.sso file
+# from the test run to the updated_examples files, then delete the old file folder and save the updated examples files with
+# the same name as the old file folder. Then, commit to git and push to remote.
+# It is also nice to tag the examples with a version number.
