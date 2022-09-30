@@ -1,8 +1,8 @@
-#V3.30.19.00;_safe;_compile_date:_Apr  4 2022;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_12.3
+#V3.30.20.00;_safe;_compile_date:_Sep 30 2022;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.0
 data.ss #_DataFile 
 control.ss #_Control 
-Run_Date: Tue Apr 12 09:39:26 2022
-Final_phase: 5  N_iterations: 522
+Run_Date: Fri Sep 30 15:24:56 2022
+Final_phase: 5  N_iterations: 530
 #_LIKELIHOOD 
 Label logL*Lambda
 TOTAL_LogL 566.287
@@ -10,11 +10,11 @@ Catch 4.76545e-12
 Survey -3.30526
 Age_comp 574.331
 Recruitment -6.56983
-InitEQ_regime 1.54502e-30
-Sum_recdevs 3.60822e-16
+InitEQ_regime 0
+Sum_recdevs -4.71845e-16
 Forecast_Recruitment 0
 Parm_priors 1.82918
-Parm_softbounds 0.00204564
+Parm_softbounds 0.00204565
 Parm_devs 0
 F_Ballpark 0
 Crash_Pen 0
@@ -55,7 +55,7 @@ SR_autocorr 0 0 Fix 0
 Main_RecrDev_1971 0.177904 0.324992 Act 0.51779
 Main_RecrDev_1972 -0.0977745 0.440058 Act 0.490223
 Main_RecrDev_1973 0.0417631 0.370364 Act 0.504176
-Main_RecrDev_1974 -0.30636 0.409381 Act 0.469364
+Main_RecrDev_1974 -0.30636 0.409382 Act 0.469364
 Main_RecrDev_1975 0.323543 0.29986 Act 0.532354
 Main_RecrDev_1976 0.166863 0.427374 Act 0.516686
 Main_RecrDev_1977 0.520225 0.269507 Act 0.552022
@@ -110,7 +110,7 @@ AgeSel_P9_FISHERY1(1) -0.0444585 0.545101 Act 0.497777
 AgeSel_P10_FISHERY1(1) 0.538461 0.294106 Act 0.526923
 AgeSel_P11_FISHERY1(1) 0 0 Fix 0.5
 AgeSel_P1_SURVEY1(2) 0 0 Fix 0.990099
-AgeSel_P2_SURVEY1(2) 7.48896 44.5876 Act 0.874448
+AgeSel_P2_SURVEY1(2) 7.48898 44.5878 Act 0.874449
 AgeSel_P3_SURVEY1(2) 0.639258 0.616568 Act 0.531963
 AgeSel_P4_SURVEY1(2) 0.8463 0.615499 Act 0.542315
 AgeSel_P5_SURVEY1(2) -0.417476 0.652527 Act 0.479126
@@ -118,7 +118,7 @@ AgeSel_P6_SURVEY1(2) 0.866247 0.544909 Act 0.543312
 AgeSel_P7_SURVEY1(2) -2.30091 1.20781 Act 0.384954
 AgeSel_P8_SURVEY1(2) 2.13292 1.22119 Act 0.606646
 AgeSel_P9_SURVEY1(2) -0.124955 0.563043 Act 0.493752
-AgeSel_P10_SURVEY1(2) -0.0881771 0.380978 Act 0.495591
+AgeSel_P10_SURVEY1(2) -0.0881772 0.380978 Act 0.495591
 AgeSel_P11_SURVEY1(2) 0 0 Fix 0.5
 minage@sel=1_SURVEY2(3) 0 0 Fix 0
 maxage@sel=1_SURVEY2(3) 0 0 Fix 0

@@ -1,7 +1,7 @@
-#V3.30.19.00;_safe;_compile_date:_Apr  4 2022;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_12.3
+#V3.30.20.00;_safe;_compile_date:_Sep 30 2022;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.0
 selex_age_example_data.ss #_DataFile 
 selex_age_example_control.ss #_Control 
-Run_Date: Tue Apr 12 09:40:30 2022
+Run_Date: Fri Sep 30 15:25:24 2022
 Final_phase: 4  N_iterations: 144
 #_LIKELIHOOD 
 Label logL*Lambda
@@ -15,7 +15,7 @@ InitEQ_regime 0
 Sum_recdevs 0
 Forecast_Recruitment 0
 Parm_priors 1.15165
-Parm_softbounds 0.0302317
+Parm_softbounds 0.0302318
 Parm_devs 0
 F_Ballpark 0
 Crash_Pen 0
@@ -80,25 +80,25 @@ AgeSel_P19_Type14_age_non-parametric(2) -1 0 Fix 0.285714
 AgeSel_P20_Type14_age_non-parametric(2) -1 0 Fix 0.285714
 AgeSel_P21_Type14_age_non-parametric(2) -1 0 Fix 0.285714
 AgeSel_P1_Type17_age_random-walk(3) -1000 0 Fix 0.00199005
-AgeSel_P2_Type17_age_random-walk(3) -0.000576417 67.0787 Act 0.499904
+AgeSel_P2_Type17_age_random-walk(3) -0.000562686 67.0787 Act 0.499906
 AgeSel_P3_Type17_age_random-walk(3) 1.49743 0.895063 Act 0.749572
 AgeSel_P4_Type17_age_random-walk(3) 1.08608 0.473532 Act 0.681013
 AgeSel_P5_Type17_age_random-walk(3) 1.01782 0.313521 Act 0.669637
 AgeSel_P6_Type17_age_random-walk(3) 0.833281 0.228041 Act 0.63888
-AgeSel_P7_Type17_age_random-walk(3) 0.427972 0.204442 Act 0.571328
+AgeSel_P7_Type17_age_random-walk(3) 0.427971 0.204442 Act 0.571328
 AgeSel_P8_Type17_age_random-walk(3) 0.0664236 0.236648 Act 0.511071
 AgeSel_P9_Type17_age_random-walk(3) 0.267761 0.281495 Act 0.544627
 AgeSel_P10_Type17_age_random-walk(3) 0.425744 0.320162 Act 0.570957
 AgeSel_P11_Type17_age_random-walk(3) -0.342309 0.358768 Act 0.442948
 Age_DblN_peak_Type20_age_double-normal(4) 7.83518 0.594475 Act 0.359746
-Age_DblN_top_logit_Type20_age_double-normal(4) 0.937405 107.667 Act 0.566957
+Age_DblN_top_logit_Type20_age_double-normal(4) 0.937403 107.685 Act 0.566957
 Age_DblN_ascend_se_Type20_age_double-normal(4) 2.19074 0.213322 Act 0.479383
-Age_DblN_descend_se_Type20_age_double-normal(4) 2.64528 159.523 Act 0.509685
+Age_DblN_descend_se_Type20_age_double-normal(4) 2.64532 159.527 Act 0.509688
 Age_DblN_start_logit_Type20_age_double-normal(4) -999 0 Fix 0
-Age_DblN_end_logit_Type20_age_double-normal(4) 6.83431 90.7781 Act 0.991947
-AgeSel_P1_Type25_age_exponential-logistic(5) 1 0.000149335 Act 0.999999
-AgeSel_P2_Type25_age_exponential-logistic(5) 0.628325 0.0148562 Act 0.630943
-AgeSel_P3_Type25_age_exponential-logistic(5) 0.00100028 0.000212673 Act 4.59778e-07
+Age_DblN_end_logit_Type20_age_double-normal(4) 6.83502 90.806 Act 0.991948
+AgeSel_P1_Type25_age_exponential-logistic(5) 1 0.000149397 Act 0.999999
+AgeSel_P2_Type25_age_exponential-logistic(5) 0.628325 0.0148557 Act 0.630943
+AgeSel_P3_Type25_age_exponential-logistic(5) 0.00100028 0.000212659 Act 4.59738e-07
 AgeSpline_Code_Type27_age_cubic-spline_6 0 0 Fix 0
 AgeSpline_GradLo_Type27_age_cubic-spline_6 1.25246 0.171292 Act 0.125333
 AgeSpline_GradHi_Type27_age_cubic-spline_6 0 0 Fix 0.999001
@@ -188,7 +188,7 @@ Totbio_unfished 56172.3 1237.34
 SmryBio_unfished 55323.6 1218.64
 Recr_unfished 10727 236.289
 SSB_Btgt 9161.89 201.814
-SPR_Btgt 0.45 1.73996e-18
+SPR_Btgt 0.45 2.42054e-18
 annF_Btgt 0.132509 0.000250707
 Dead_Catch_Btgt 3802.78 80.1544
 SSB_SPR 7912.54 174.294
@@ -210,14 +210,14 @@ AgeSelex_std_4_Fem_A_4 0.193029 0.0401117
 AgeSelex_std_4_Fem_A_5 0.407 0.082942
 AgeSelex_std_4_Fem_A_6 0.686163 0.116339
 AgeSelex_std_4_Fem_A_7 0.924967 0.0882437
-AgeSelex_std_4_Fem_A_8 0.999831 0.000147426
+AgeSelex_std_4_Fem_A_8 0.999831 0.000147427
 AgeSelex_std_4_Fem_A_9 0.999997 4.19513e-06
-AgeSelex_std_4_Fem_A_10 1 2.88228e-07
-AgeSelex_std_4_Fem_A_11 1 6.37549e-08
-AgeSelex_std_4_Fem_A_12 1 2.66662e-08
-AgeSelex_std_4_Fem_A_13 1 2.01578e-08
-AgeSelex_std_4_Fem_A_14 1 4.45025e-08
-AgeSelex_std_4_Fem_A_15 1 3.45439e-07
+AgeSelex_std_4_Fem_A_10 1 2.88227e-07
+AgeSelex_std_4_Fem_A_11 1 6.37543e-08
+AgeSelex_std_4_Fem_A_12 1 2.66643e-08
+AgeSelex_std_4_Fem_A_13 1 2.01527e-08
+AgeSelex_std_4_Fem_A_14 1 4.44827e-08
+AgeSelex_std_4_Fem_A_15 1 3.45262e-07
 AgeSelex_std_4_Mal_A_1 0.00538134 0.00203905
 AgeSelex_std_4_Mal_A_2 0.0221958 0.00562925
 AgeSelex_std_4_Mal_A_3 0.0732008 0.0151959
@@ -225,14 +225,14 @@ AgeSelex_std_4_Mal_A_4 0.193029 0.0401117
 AgeSelex_std_4_Mal_A_5 0.407 0.082942
 AgeSelex_std_4_Mal_A_6 0.686163 0.116339
 AgeSelex_std_4_Mal_A_7 0.924967 0.0882437
-AgeSelex_std_4_Mal_A_8 0.999831 0.000147426
+AgeSelex_std_4_Mal_A_8 0.999831 0.000147427
 AgeSelex_std_4_Mal_A_9 0.999997 4.19513e-06
-AgeSelex_std_4_Mal_A_10 1 2.88228e-07
-AgeSelex_std_4_Mal_A_11 1 6.37549e-08
-AgeSelex_std_4_Mal_A_12 1 2.66662e-08
-AgeSelex_std_4_Mal_A_13 1 2.01578e-08
-AgeSelex_std_4_Mal_A_14 1 4.45025e-08
-AgeSelex_std_4_Mal_A_15 1 3.45439e-07
+AgeSelex_std_4_Mal_A_10 1 2.88227e-07
+AgeSelex_std_4_Mal_A_11 1 6.37543e-08
+AgeSelex_std_4_Mal_A_12 1 2.66643e-08
+AgeSelex_std_4_Mal_A_13 1 2.01527e-08
+AgeSelex_std_4_Mal_A_14 1 4.44827e-08
+AgeSelex_std_4_Mal_A_15 1 3.45262e-07
 NatAge_std_1_Fem_A_20 3.13714 1.2401
 NatAge_std_1_Mal_A_20 3.13714 1.2401
 ln(SPB)_2001 10.0391 0.0220275

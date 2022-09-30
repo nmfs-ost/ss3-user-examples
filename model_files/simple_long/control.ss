@@ -1,4 +1,4 @@
-#V3.30.19.00;_safe;_compile_date:_Apr  4 2022;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_12.3
+#V3.30.20.00;_safe;_compile_date:_Sep 30 2022;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.0
 #_Stock_Synthesis_is_a_work_of_the_U.S._Government_and_is_not_subject_to_copyright_protection_in_the_United_States.
 #_Foreign_copyrights_may_apply._See_copyright.txt_for_more_information.
 #_User_support_available_at:NMFS.Stock.Synthesis@noaa.gov
@@ -48,7 +48,7 @@
 #
 # setup for M, growth, wt-len, maturity, fecundity, (hermaphro), recr_distr, cohort_grow, (movement), (age error), (catch_mult), sex ratio 
 #_NATMORT
-0 #_natM_type:_0=1Parm; 1=N_breakpoints;_2=Lorenzen;_3=agespecific;_4=agespec_withseasinterpolate;_5=BETA:_Maunder_link_to_maturity
+0 #_natM_type:_0=1Parm; 1=N_breakpoints;_2=Lorenzen;_3=agespecific;_4=agespec_withseasinterpolate;_5=BETA:_Maunder_link_to_maturity;_6=Lorenzen_range
   #_no additional input for selected M option; read 1P per morph
 #
 1 # GrowthModel: 1=vonBert with L1&L2; 2=Richards with L1&L2; 3=age_specific_K_incr; 4=age_specific_K_decr; 5=age_specific_K_each; 6=NA; 7=NA; 8=growth cessation
@@ -62,7 +62,7 @@
 #
 1 #_maturity_option:  1=length logistic; 2=age logistic; 3=read age-maturity matrix by growth_pattern; 4=read age-fecundity; 5=disabled; 6=read length-maturity
 1 #_First_Mature_Age
-1 #_fecundity option:(1)eggs=Wt*(a+b*Wt);(2)eggs=a*L^b;(3)eggs=a*Wt^b; (4)eggs=a+b*L; (5)eggs=a+b*W
+1 #_fecundity_at_length option:(1)eggs=Wt*(a+b*Wt);(2)eggs=a*L^b;(3)eggs=a*Wt^b; (4)eggs=a+b*L; (5)eggs=a+b*W
 0 #_hermaphroditism option:  0=none; 1=female-to-male age-specific fxn; -1=male-to-female age-specific fxn
 1 #_parameter_offset_approach for M, G, CV_G:  1- direct, no offset**; 2- male=fem_parm*exp(male_parm); 3: male=female*exp(parm) then old=young*exp(parm)
 #_** in option 1, any male parameter with value = 0.0 and phase <0 is set equal to female parameter
@@ -97,7 +97,7 @@
  -3 3 2.44e-06 2.44e-06 0.8 0 -3 0 0 0 0 0 0 0 # Wtlen_1_Mal_GP_1
  -3 4 3.34694 3.34694 0.8 0 -3 0 0 0 0 0 0 0 # Wtlen_2_Mal_GP_1
 # Hermaphroditism
-#  Recruitment Distribution  
+#  Recruitment Distribution 
 #  Cohort growth dev base
  0.1 10 1 1 1 0 -1 0 0 0 0 0 0 0 # CohortGrowDev
 #  Movement
@@ -150,7 +150,7 @@
 #
 # all recruitment deviations
 #  1971R 1972R 1973R 1974R 1975R 1976R 1977R 1978R 1979R 1980R 1981R 1982R 1983R 1984R 1985R 1986R 1987R 1988R 1989R 1990R 1991R 1992R 1993R 1994R 1995R 1996R 1997R 1998R 1999R 2000R 2001R 2002R 2003R 2004R 2005R 2006R 2007R 2008R 2009R 2010R 2011R 2012R 2013R 2014R 2015R 2016R 2017R 2018R 2019R 2020F 2021F 2022F 2023F 2024F 2025F 2026F 2027F 2028F 2029F 2030F 2031F
-#  0.0543202 -0.132132 0.0170257 -0.233345 0.00178884 0.614668 -0.0454773 -0.0336667 0.164065 0.128977 0.0377959 -0.297495 -0.5029 -0.333195 0.285489 0.50319 0.149696 0.0471794 -0.432785 0.48436 -0.796551 -0.396227 -0.853553 0.251083 -0.655256 0.268488 1.02237 -0.52925 -0.7771 0.100598 -0.20233 0.0672262 -0.075976 0.357831 0.284251 0.0466669 -0.156954 0.0858492 0.160527 -0.45951 0.224272 0.146146 0.0162512 0.430914 0.0327892 0.102239 0.399212 0.0151833 0.413248 0.494159 0.2305 0 0 0 0 0 0 0 0 0 0
+#  0.0543202 -0.132131 0.0170257 -0.233345 0.00178886 0.614668 -0.0454773 -0.0336666 0.164065 0.128977 0.0377959 -0.297495 -0.5029 -0.333195 0.285489 0.50319 0.149696 0.0471795 -0.432785 0.48436 -0.796551 -0.396227 -0.853553 0.251083 -0.655256 0.268488 1.02237 -0.52925 -0.7771 0.100598 -0.20233 0.0672262 -0.075976 0.357831 0.284251 0.0466668 -0.156954 0.0858492 0.160527 -0.45951 0.224272 0.146146 0.0162513 0.430914 0.0327892 0.102239 0.399212 0.0151833 0.413248 0.494159 0.2305 0 0 0 0 0 0 0 0 0 0
 #
 #Fishing Mortality info 
 0.3 # F ballpark value in units of annual_F
@@ -166,7 +166,7 @@
 # F rates by fleet x season
 # Yr:  1971 1972 1973 1974 1975 1976 1977 1978 1979 1980 1981 1982 1983 1984 1985 1986 1987 1988 1989 1990 1991 1992 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025 2026 2027 2028 2029 2030 2031
 # seas:  1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-# FISHERY 0 0.00210498 0.0105794 0.0106736 0.0216442 0.0332336 0.0458004 0.0597219 0.0753927 0.107205 0.146014 0.161383 0.179341 0.200852 0.227579 0.262209 0.308585 0.329747 0.343319 0.342603 0.324281 0.226915 0.230921 0.237485 0.248388 0.265019 0.210557 0.218821 0.225282 0.227651 0.226523 0.146427 0.139878 0.135111 0.131604 0.128616 0.12546 0.0596804 0.0555283 0.0517757 0.0484844 0.092722 0.0904277 0.0883334 0.0862246 0.0839229 0.123779 0.12292 0.121571 0.119796 0.117602 0.0693456 0.0717268 0.0739528 0.0760259 0.0778591 0.0793604 0.0805111 0.0813594 0.0819789 0.0824391
+# FISHERY 0 0.00210498 0.0105794 0.0106736 0.0216442 0.0332336 0.0458004 0.0597219 0.0753927 0.107205 0.146014 0.161383 0.179341 0.200852 0.227579 0.262209 0.308585 0.329747 0.343319 0.342603 0.324281 0.226915 0.230921 0.237485 0.248388 0.265019 0.210557 0.218821 0.225282 0.227651 0.226523 0.146427 0.139878 0.135111 0.131604 0.128616 0.12546 0.0596804 0.0555283 0.0517757 0.0484844 0.092722 0.0904277 0.0883334 0.0862246 0.0839229 0.123779 0.12292 0.121571 0.119796 0.117602 0.0693456 0.0717268 0.0739528 0.076026 0.0778591 0.0793604 0.0805111 0.0813594 0.0819789 0.0824391
 #
 #_Q_setup for fleets with cpue or survey data
 #_1:  fleet number
