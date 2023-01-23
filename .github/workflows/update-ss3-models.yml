@@ -1,5 +1,4 @@
 name: update-user-example-models
-
 on:
  workflow_dispatch:
 
@@ -40,7 +39,7 @@ jobs:
         run: |
           echo "ss" >> $GITHUB_PATH
      
-     - name: run models
+      - name: run models
         run: |
           # functions to use ----
 
