@@ -3,7 +3,7 @@ on:
  workflow_dispatch:
 
 jobs:
-  check-models-run:
+  update-models:
     runs-on: ubuntu-latest
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
@@ -18,7 +18,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y libcurl4-openssl-dev
-                  
+
       - name: setup R  
         uses: r-lib/actions/setup-r@v2
       
