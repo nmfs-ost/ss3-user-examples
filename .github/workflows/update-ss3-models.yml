@@ -78,7 +78,7 @@ jobs:
           new_mod_dirs <- list.dirs("new_model_files", recursive = FALSE)
           # use the parallel version to speed up model runs 
           SSutils::run_SS_models_parallel(dirvec = new_mod_dirs, 
-                                          model = ss, exe_in_path = TRUE, 
+                                          model = "ss", exe_in_path = TRUE, 
                                           parallel = TRUE)
           new_mod_runs_folder <- file.path("new_model_files")
           new_mod_path_list <- list.dirs(new_mod_runs_folder, recursive = FALSE,
