@@ -75,7 +75,7 @@ jobs:
           r4ss::populate_multiple_folders(outerdir.old = "model_files", 
                                           outerdir.new = "new_model_files",
                                           exe.file = NULL, verbose = FALSE)
-          mod_dirs <- list.dirs("model_files", recursive = FALSE)
+          new_mod_dirs <- list.dirs("new_model_files", recursive = FALSE)
           # use the parallel version to speed up model runs 
           SSutils::run_SS_models_parallel(dirvec = new_mod_dirs, 
                                           model = ss, exe_in_path = TRUE, 
