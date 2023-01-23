@@ -1,6 +1,6 @@
 name: update-user-example-models
 on:
- workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   update-user-example-models:
