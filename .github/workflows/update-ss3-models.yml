@@ -1,8 +1,5 @@
 name: update-user-example-models
-on: 
-  push
-  release:
-    types: [published]
+on: push
 
 jobs:
   update-user-example-models:
