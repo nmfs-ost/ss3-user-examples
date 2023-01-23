@@ -1,6 +1,5 @@
 name: update-user-example-models
-on:
-  workflow_dispatch:
+on: push
 
 jobs:
   update-user-example-models:
@@ -75,7 +74,7 @@ jobs:
           r4ss::populate_multiple_folders(outerdir.old = "model_files", 
                                           outerdir.new = "new_model_files",
                                           exe.file = NULL, verbose = FALSE)
-          new_mod_dirs <- list.dirs("new_model_files", recursive = FALSE)
+          mod_dirs <- list.dirs("model_files", recursive = FALSE)
           # use the parallel version to speed up model runs 
           SSutils::run_SS_models_parallel(dirvec = new_mod_dirs, 
                                           model = ss, exe_in_path = TRUE, 
@@ -84,12 +83,12 @@ jobs:
           new_mod_path_list <- list.dirs(new_mod_runs_folder, recursive = FALSE,
                                         full.names = TRUE)
           run_results <- lapply(new_mod_path_list, update_ref_files)
-          run_results # check that the run results is TRUE. if not, something went wrong
         shell: Rscript {0}
 
 
-      - name: commit and push  
-        uses: stefanzweifel/git-auto-commit-action@v4
+      - name: Create Pull Request 
+        uses: peter-evans/create-pull-request@v3
         with:
-          commit_message: Update model files
+          commit_message: Update model files to new ss.exe
           branch: add-update-workflow
+          title: 'Update model files to new ss.exe'
