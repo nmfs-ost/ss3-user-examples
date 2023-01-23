@@ -103,14 +103,14 @@ jobs:
           # copy the new input files back into the old ones to get new formatting.
           # note that using the ss_new files means that the some of the input values in the control file
           # may change a bit to be at the MLE estimates.
-          r4ss::populate_multiple_folders(outerdir.old = "new_models", 
-                                          outerdir.new = "models", overwrite = TRUE,
+          r4ss::populate_multiple_folders(outerdir.old = "new_model_files", 
+                                          outerdir.new = "model_files", overwrite = TRUE,
                                           exe.file = NULL, verbose = FALSE, 
                                           use_ss_new = TRUE)
           # manually, check that the changed files make sense and commit changes. Then, run clean up.
 
           # cleanup ----
-          unlink("new_models", recursive = TRUE)
+          unlink("new_model_files", recursive = TRUE)
         shell: Rscript {0}
 
 
