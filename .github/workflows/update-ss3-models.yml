@@ -1,5 +1,8 @@
 name: update-user-example-models
-on: push
+on: 
+  push
+  release:
+    types: [published]
 
 jobs:
   update-user-example-models:
@@ -84,6 +87,33 @@ jobs:
           new_mod_path_list <- list.dirs(new_mod_runs_folder, recursive = FALSE,
                                         full.names = TRUE)
           run_results <- lapply(new_mod_path_list, update_ref_files)
+
+          # check all have been replaced with the correct version of summary files
+          # want to double check this before committing the files.
+          git_mods <- list.dirs("models", recursive = FALSE, full.names = TRUE)
+          first_line <- lapply(git_mods, function (x) {
+            ss_sum <- readLines(file.path(x, "ss_summary.sso"))
+            version <- grep(update_model_string , ss_sum, fixed = TRUE)
+            if (!(1 %in% version)) {
+              message(update_model_string, " not found on first line for ", x)
+            }
+            return(ss_sum[1])
+          })
+          # see all first lines for the files to verify the correct version of SS3 is being used.
+          unlist(first_line)
+
+          # second part: copy over new input files
+          # copy the new input files back into the old ones to get new formatting.
+          # note that using the ss_new files means that the some of the input values in the control file
+          # may change a bit to be at the MLE estimates.
+          r4ss::populate_multiple_folders(outerdir.old = "new_models", 
+                                          outerdir.new = "models", overwrite = TRUE,
+                                          exe.file = NULL, verbose = FALSE, 
+                                          use_ss_new = TRUE)
+          # manually, check that the changed files make sense and commit changes. Then, run clean up.
+
+          # cleanup ----
+          unlink("new_models", recursive = TRUE)
         shell: Rscript {0}
 
 
