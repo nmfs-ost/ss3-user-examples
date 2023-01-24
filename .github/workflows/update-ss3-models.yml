@@ -34,9 +34,8 @@ jobs:
       - name: Get the latest SS3 executable
         run:  wget -O ss https://github.com/nmfs-stock-synthesis/stock-synthesis/releases/latest/download/ss_linux
           
-      - name: change permissions and move ss to path
+      - name: move ss to path
         run: |
-          chmod a+x ss
           echo "ss" >> $GITHUB_PATH
      
       - name: run models
