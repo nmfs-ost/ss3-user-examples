@@ -1,5 +1,5 @@
 name: update-user-example-models
-on: push
+on: workflow_dispatch:
 
 jobs:
   update-user-example-models:
