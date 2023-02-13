@@ -1,5 +1,6 @@
 name: update-user-example-models
-on: workflow_dispatch:
+on: 
+  workflow_dispatch:
 
 jobs:
   update-user-example-models:
@@ -47,7 +48,7 @@ jobs:
           files_to_move <- c("ss_summary.sso")
           # copy model files from new_mod_path folder to the git_mod_path folder,
           results_of_move <- lapply(files_to_move,
-                                    function(x, new_mod_path, git_mod_path) {
+                                      function(x, new_mod_path, git_mod_path) {
               file.remove(file.path(git_mod_path, x))
               file.copy(from = file.path(new_mod_path, x),
                         to = file.path(git_mod_path, x), 
