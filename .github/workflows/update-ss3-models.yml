@@ -100,8 +100,8 @@ jobs:
           unlink(new_mod_dir_name, recursive = TRUE)
         shell: Rscript {0}
 
-      - name: Remove ss from path
-        run: rm ss3
+#      - name: Remove ss from path
+#        run: rm ss3
 
       - name: Setup git user
         uses: fregante/setup-git-user@v1
