@@ -1,4 +1,4 @@
-#V3.30.20.00;_safe;_compile_date:_Sep 30 2022;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.0
+#V3.30.21.00;_safe;_compile_date:_Feb 10 2023;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.1
 #_Stock_Synthesis_is_a_work_of_the_U.S._Government_and_is_not_subject_to_copyright_protection_in_the_United_States.
 #_Foreign_copyrights_may_apply._See_copyright.txt_for_more_information.
 #_User_support_available_at:NMFS.Stock.Synthesis@noaa.gov
@@ -167,11 +167,11 @@
 # F rates by fleet x season
 # Yr:  2001 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013
 # seas:  1 1 1 1 1 1 1 1 1 1 1 1 1
-# Type1_size_logistic 0.0226987 0.0254321 0.0285933 0.0322001 0.0362964 0.0409693 0.0463725 0.0527648 0.0605835 0.0705988 0.0842847 0.104858 0.104858
-# Type6_size_non-parametric 0.0312812 0.0350172 0.0392256 0.0439365 0.0492364 0.0552501 0.0621742 0.070332 0.0802675 0.0929391 0.110179 0.13598 0.13598
-# Type24_size_double-normal 0.0307202 0.0343895 0.0385108 0.0431128 0.0482734 0.054111 0.0608182 0.0687117 0.0783212 0.0905768 0.107254 0.132218 0.132218
-# Type25_size_exponential-logistic 0.0293308 0.0328426 0.0367966 0.0411922 0.0460782 0.0515628 0.0578344 0.0652003 0.0741674 0.0856169 0.101223 0.124627 0.124627
-# Type27_size_cubic-spline 0.0309789 0.0346791 0.0388344 0.0434681 0.0486556 0.0545176 0.0612493 0.0691701 0.0788126 0.0911109 0.107847 0.132902 0.132902
+# Type1_size_logistic 0.0226986 0.0254319 0.0285931 0.0321999 0.0362962 0.040969 0.0463721 0.0527643 0.0605828 0.0705978 0.0842832 0.104855 0.104855
+# Type6_size_non-parametric 0.0312811 0.035017 0.0392254 0.0439362 0.0492361 0.0552497 0.0621736 0.0703312 0.0802666 0.0929378 0.110177 0.135977 0.135977
+# Type24_size_double-normal 0.0307201 0.0343894 0.0385106 0.0431125 0.0482731 0.0541106 0.0608177 0.068711 0.0783203 0.0905755 0.107252 0.132215 0.132215
+# Type25_size_exponential-logistic 0.0293307 0.0328424 0.0367964 0.0411919 0.0460778 0.0515624 0.0578339 0.0651996 0.0741665 0.0856157 0.101221 0.124624 0.124624
+# Type27_size_cubic-spline 0.0309788 0.0346789 0.0388343 0.0434678 0.0486553 0.0545172 0.0612488 0.0691694 0.0788117 0.0911096 0.107845 0.132899 0.132899
 #
 #_Q_setup for fleets with cpue or survey data
 #_1:  fleet number
@@ -186,7 +186,7 @@
 #
 #_Q_parms(if_any);Qunits_are_ln(q)
 #_          LO            HI          INIT         PRIOR         PR_SD       PR_type      PHASE    env-var    use_dev   dev_mnyr   dev_mxyr     dev_PH      Block    Blk_Fxn  #  parm_name
-           -25            25      -8.38539             0             1             0         -1          0          0          0          0          0          0          0  #  LnQ_base_Type1_size_logistic(1)
+           -25            25       -8.3854             0             1             0         -1          0          0          0          0          0          0          0  #  LnQ_base_Type1_size_logistic(1)
 #_no timevary Q parameters
 #
 #_size_selex_patterns
