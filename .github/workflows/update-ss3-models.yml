@@ -82,7 +82,7 @@ jobs:
 
           # use the parallel version to speed up model runs 
           model_runs <- SSutils::run_SS_models_parallel(dirvec = new_mod_dirs,
-                                          model = "ss", exe_in_path = TRUE,
+                                          model = "ss3", exe_in_path = TRUE,
                                           extras = "-stopph 0",
                                           parallel = TRUE, verbose = TRUE)
           
