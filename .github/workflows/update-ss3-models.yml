@@ -36,7 +36,7 @@ jobs:
         run: |
           wget -O ss3 https://github.com/nmfs-stock-synthesis/stock-synthesis/releases/latest/download/ss_linux
           sudo chmod a+x ss3
-          mv ss3 /usr/local/bin/ss
+          mv ss3 /usr/local/bin/ss3
           echo $PATH
           export PATH=/usr/local/bin/ss3:$PATH
           echo "/usr/local/bin/ss3" >> $GITHUB_PATH
@@ -82,7 +82,7 @@ jobs:
           new_mod_dirs_names <- file.path(new_mod_dir_name, list.files(new_mod_dir_name))
 
           # use the parallel version to speed up model runs 
-          r4ss::run(dirvec = new_mod_dirs_names[1], model = "ss3", exe_in_path = TRUE, extras = "-stopph 0", verbose = TRUE)
+          r4ss::run(dir = new_mod_dirs_names[1], exe = "/usr/local/bin/ss3", extras = "-stopph 0", verbose = TRUE)
                                           
           # model_runs <- SSutils::run_SS_models_parallel(dirvec = new_mod_dirs,
           #                                 model = "/usr/local/bin/ss3", exe_in_path = FALSE,
