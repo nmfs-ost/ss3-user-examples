@@ -81,16 +81,16 @@ jobs:
                                 exe.file = NULL, verbose = FALSE)
 
           purrr::map(
-            .x = file.path(new_mod_dir_name, list.files(new_mod_dir_name),
+            .x = file.path(new_mod_dir_name, list.files(new_mod_dir_name)),
             .f = r4ss::run,
             exe = "/usr/local/bin/ss3", 
             extras = "-stopph 0", verbose = TRUE)
           
-          # new_mod_runs_folder <- file.path(new_mod_dir_name)
-          # new_mod_path_list <- list.dirs(new_mod_runs_folder, recursive = FALSE,
-          #                               full.names = TRUE)
-          # run_result <- lapply(new_mod_path_list, update_ref_files)
-          # run_result
+          new_mod_runs_folder <- file.path(new_mod_dir_name)
+          new_mod_path_list <- list.dirs(new_mod_runs_folder, recursive = FALSE,
+                                        full.names = TRUE)
+          run_result <- lapply(new_mod_path_list, update_ref_files)
+          run_result
 
           r4ss::populate_multiple_folders(outerdir.old = new_mod_dir_name, 
                                 outerdir.new = mod_dir_name,
