@@ -79,13 +79,10 @@ jobs:
                                 exe.file = NULL, verbose = FALSE)
 
           new_mod_dirs <- list.dirs(new_mod_dir_name, recursive = FALSE)
+          new_mod_dirs_names <- file.path(new_mod_dir_name, list.files(new_mod_dir_name))
 
           # use the parallel version to speed up model runs 
-          r4ss::run(dirvec = new_mod_dirs[1],
-                    model = "ss3", 
-                    exe_in_path = TRUE,
-                    extras = "-stopph 0",
-                    verbose = TRUE)
+          r4ss::run(dirvec = new_mod_dirs_names[1], model = "ss3", exe_in_path = TRUE, extras = "-stopph 0", verbose = TRUE)
                                           
           # model_runs <- SSutils::run_SS_models_parallel(dirvec = new_mod_dirs,
           #                                 model = "/usr/local/bin/ss3", exe_in_path = FALSE,
