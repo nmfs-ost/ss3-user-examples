@@ -33,15 +33,23 @@ jobs:
         run: Rscript -e 'remotes::install_github("r4ss/SSutils")'
         
       - name: Get the latest SS3 executable
-        run:  wget -O ss https://github.com/nmfs-stock-synthesis/stock-synthesis/releases/latest/download/ss_linux
-          
-      - name: move ss to path
         run: |
-          echo "ss" >> $GITHUB_PATH
+          wget -O ss3 https://github.com/nmfs-stock-synthesis/stock-synthesis/releases/latest/download/ss_linux
+          sudo chmod a+x ss3
+          mv ss3 /usr/local/bin/ss3
+          echo $PATH
+          export PATH=/usr/local/bin/ss3:$PATH
+          echo "/usr/local/bin/ss3" >> $GITHUB_PATH
+          echo $PATH
      
       - name: run models
         run: |
-          update_ref_files <- function(new_mod_path, ss_examples_folder = file.path(getwd(), "model_files")) {
+          dirs_test <- list.dirs(recursive = FALSE)
+          mod_dir_name <- dirs_test[grepl("model", dirs_test)]
+          mod_dir_name <- gsub(".*\\./", "", mod_dir_name)
+          mod_dirs <- list.dirs(dirs_test[grepl("model", dirs_test)], recursive = FALSE)
+
+          update_ref_files <- function(new_mod_path, ss_examples_folder = file.path(getwd(), mod_dir_name)) {
           mod_name <- basename(new_mod_path)
           git_mod_path <- file.path(ss_examples_folder, mod_name)
           # list model files that need to be moved
@@ -63,11 +71,6 @@ jobs:
           }
           files_replaced
           }
-
-          dirs_test <- list.dirs(recursive = FALSE)
-          mod_dir_name <- dirs_test[grepl("model", dirs_test)]
-          mod_dir_name <- gsub(".*\\./", "", mod_dir_name)
-          mod_dirs <- list.dirs(dirs_test[grepl("model", dirs_test)], recursive = FALSE)
 
           new_mod_dir_name <- "new_models"
 
