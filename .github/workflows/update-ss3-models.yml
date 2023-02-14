@@ -40,10 +40,8 @@ jobs:
           wget -O ss3 https://github.com/nmfs-stock-synthesis/stock-synthesis/releases/latest/download/ss_linux
           sudo chmod a+x ss3
           mv ss3 /usr/local/bin/ss3
-          echo $PATH
           export PATH=/usr/local/bin/ss3:$PATH
           echo "/usr/local/bin/ss3" >> $GITHUB_PATH
-          echo $PATH
      
       - name: run models
         run: |
