@@ -5,13 +5,11 @@ on:
   pull_request:
     paths:
       - 'model_files/**'
-      - '**.yml'
-    branches: [main, transfer-workflows]
+    branches: [main]
   push:
     paths:
       - 'model_files/**'
-      - '**.yml'
-    branches: [main, transfer-workflows]
+    branches: [main]
 
 jobs:
   check-models-run:
