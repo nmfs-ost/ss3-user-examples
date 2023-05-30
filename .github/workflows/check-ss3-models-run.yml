@@ -1,7 +1,16 @@
 # run stock synthesis models in the user-examples repo.
 name: check-models-run
 on:
- workflow_call:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'model_files/**'
+    branches: [main]
+  push:
+    paths:
+      - 'model_files/**'
+      - '**.yml'
+    branches: [main, transfer-workflows-with-history]
 
 jobs:
   check-models-run:
