@@ -97,18 +97,6 @@ jobs:
                                           exe.file = NULL, verbose = FALSE, 
                                           use_ss_new = TRUE, overwrite = TRUE)
           unlink(new_mod_dir_name, recursive = TRUE)
-
-        # files_remove <- function(directory, pattern = "ss_summary.sso") {
-        #   file.remove(dir(
-        #     path = directory,
-        #     recursive = TRUE,
-        #     pattern = pattern,
-        #     full.names = TRUE
-        #   ))
-        #   return(invisible())
-        # }
-
-        # files_remove(mod_dirs, pattern = evict)
         shell: Rscript {0}
 
 
