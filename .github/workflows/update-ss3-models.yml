@@ -83,7 +83,7 @@ jobs:
           purrr::map(
             .x = file.path(new_mod_dir_name, list.files(new_mod_dir_name)),
             .f = r4ss::run,
-            exe = "/usr/local/bin/ss3", 
+            exe = "/usr/local/bin/ss3",
             extras = "-stopph 0", verbose = TRUE)
           
           new_mod_runs_folder <- file.path(new_mod_dir_name)
@@ -92,17 +92,23 @@ jobs:
           run_result <- lapply(new_mod_path_list, update_ref_files)
           run_result
 
-          files_remove <- function(directory, pattern = "ss_summary.sso") {
-            file.remove(dir(
-              path = directory,
-              recursive = TRUE,
-              pattern = pattern,
-              full.names = TRUE
-            ))
-            return(invisible())
-          }
+          r4ss::populate_multiple_folders(outerdir.old = new_mod_dir_name, 
+                                          outerdir.new = mod_dir_name,
+                                          exe.file = NULL, verbose = FALSE, 
+                                          use_ss_new = TRUE, overwrite = TRUE)
+          unlink(new_mod_dir_name, recursive = TRUE)
 
-          files_remove(mod_dirs, pattern = evict)
+        # files_remove <- function(directory, pattern = "ss_summary.sso") {
+        #   file.remove(dir(
+        #     path = directory,
+        #     recursive = TRUE,
+        #     pattern = pattern,
+        #     full.names = TRUE
+        #   ))
+        #   return(invisible())
+        # }
+
+        # files_remove(mod_dirs, pattern = evict)
         shell: Rscript {0}
 
 
