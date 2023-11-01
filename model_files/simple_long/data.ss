@@ -5,11 +5,7 @@
 #_User_info_available_at:https://vlab.noaa.gov/group/stock-synthesis
 #_Source_code_at:_https://github.com/nmfs-stock-synthesis/stock-synthesis
 
-<<<<<<< HEAD
-#_Start_time: Tue Oct 31 15:10:41 2023
-=======
 #_Start_time: Tue Oct 31 17:17:20 2023
->>>>>>> e2f350693a996d5f54c37baff9258c07eeaf3cc5
 #_echo_input_data
 #C data file for simple example
 #V3.30.22.00;_safe;_compile_date:_Oct 30 2023;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.1
