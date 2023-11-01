@@ -26,11 +26,11 @@
 #_catch_mult: 0=no; 1=yes
 #_rows are fleets
 #_fleet_type fishery_timing area catch_units need_catch_mult fleetname
- 1 1 1 1 0 Type1_size_logistic  # 1
- 1 1 1 1 0 Type6_size_non-parametric  # 2
- 1 1 1 1 0 Type24_size_double-normal  # 3
- 1 1 1 1 0 Type25_size_exponential-logistic  # 4
- 1 1 1 1 0 Type27_size_cubic-spline  # 5
+ 1 -1 1 1 0 Type1_size_logistic  # 1
+ 1 -1 1 1 0 Type6_size_non-parametric  # 2
+ 1 -1 1 1 0 Type24_size_double-normal  # 3
+ 1 -1 1 1 0 Type25_size_exponential-logistic  # 4
+ 1 -1 1 1 0 Type27_size_cubic-spline  # 5
 #Bycatch_fleet_input_goes_next
 #a:  fleet index
 #b:  1=include dead bycatch in total dead catch for F0.1 and MSY optimizations and forecast ABC; 2=omit from total catch for these purposes (but still include the mortality)
