@@ -1,7 +1,11 @@
 #V3.30.22.00;_safe;_compile_date:_Oct 30 2023;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.1
 selex_length_example_data.ss #_DataFile 
 selex_length_example_control.ss #_Control 
+<<<<<<< HEAD
 Run_Date: Tue Oct 31 15:09:11 2023
+=======
+Run_Date: Tue Oct 31 17:15:56 2023
+>>>>>>> e2f350693a996d5f54c37baff9258c07eeaf3cc5
 Final_phase: 1  N_iterations: 8
 #_LIKELIHOOD 
 Label logL*Lambda
