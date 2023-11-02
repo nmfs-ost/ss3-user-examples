@@ -84,7 +84,7 @@ jobs:
             .x = file.path(new_mod_dir_name, list.files(new_mod_dir_name)),
             .f = r4ss::run,
             exe = "/usr/local/bin/ss3",
-            extras = "-stopph 0", verbose = TRUE)
+            verbose = TRUE)
           
           new_mod_runs_folder <- file.path(new_mod_dir_name)
           new_mod_path_list <- list.dirs(new_mod_runs_folder, recursive = FALSE,
@@ -111,6 +111,6 @@ jobs:
       - name: Create Pull Request 
         uses: peter-evans/create-pull-request@v3
         with:
-          commit_message: Update model files to new ss exe
-          branch: update-user-example-models
-          title: 'Update model files to new ss exe'
+          commit_message: Update test model files to new ss3 release
+          branch: add-update-workflow-new
+          title: 'Update test model files to new ss3 release'

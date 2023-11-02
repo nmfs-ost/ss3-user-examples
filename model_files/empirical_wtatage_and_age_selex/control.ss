@@ -1,4 +1,4 @@
-#V3.30.21.00;_safe;_compile_date:_Feb 10 2023;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.1
+#V3.30.22.00;_safe;_compile_date:_Oct 30 2023;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.1
 #_Stock_Synthesis_is_a_work_of_the_U.S._Government_and_is_not_subject_to_copyright_protection_in_the_United_States.
 #_Foreign_copyrights_may_apply._See_copyright.txt_for_more_information.
 #_User_support_available_at:NMFS.Stock.Synthesis@noaa.gov
@@ -12,9 +12,10 @@
 1  #_N_Growth_Patterns (Growth Patterns, Morphs, Bio Patterns, GP are terms used interchangeably in SS3)
 1 #_N_platoons_Within_GrowthPattern 
 #_Cond 1 #_Platoon_within/between_stdev_ratio (no read if N_platoons=1)
+#_Cond sd_ratio_rd < 0: platoon_sd_ratio parameter required after movement params.
 #_Cond  1 #vector_platoon_dist_(-1_in_first_val_gives_normal_approx)
 #
-2 # recr_dist_method for parameters:  2=main effects for GP, Area, Settle timing; 3=each Settle entity; 4=none (only when N_GP*Nsettle*pop==1)
+4 # recr_dist_method for parameters:  2=main effects for GP, Area, Settle timing; 3=each Settle entity; 4=none (only when N_GP*Nsettle*pop==1)
 1 # not yet implemented; Future usage: Spawner-Recruitment: 1=global; 2=by area
 1 #  number of recruitment settlement assignments 
 0 # unused option
@@ -52,8 +53,8 @@
   #_no additional input for selected M option; read 1P per morph
 #
 1 # GrowthModel: 1=vonBert with L1&L2; 2=Richards with L1&L2; 3=age_specific_K_incr; 4=age_specific_K_decr; 5=age_specific_K_each; 6=NA; 7=NA; 8=growth cessation
-0 #_Age(post-settlement)_for_L1;linear growth below this
-25 #_Growth_Age_for_L2 (999 to use as Linf)
+0 #_Age(post-settlement) for L1 (aka Amin); first growth parameter is size at this age; linear growth below this
+25 #_Age(post-settlement) for L2 (aka Amax); 999 to treat as Linf
 -999 #_exponential decay for growth above maxage (value should approx initial Z; -999 replicates 3.24; -998 to not allow growth above maxage)
 0  #_placeholder for future growth feature
 #
@@ -98,12 +99,10 @@
  -3 4 3.34694 3.34694 0.8 0 -3 0 0 0 0 0 0 0 # Wtlen_2_Mal_GP_1
 # Hermaphroditism
 #  Recruitment Distribution 
- 0 0 0 0 0 0 -4 0 0 0 0 0 0 0 # RecrDist_GP_1
- 0 0 0 0 0 0 -4 0 0 0 0 0 0 0 # RecrDist_Area_1
- 0 0 0 0 0 0 -4 0 0 0 0 0 0 0 # RecrDist_month_1
 #  Cohort growth dev base
  0.1 10 1 1 1 0 -1 0 0 0 0 0 0 0 # CohortGrowDev
 #  Movement
+#  Platoon StDev Ratio 
 #  Age Error from parameters
 #  catch multiplier
 #  fraction female, by GP
@@ -128,7 +127,7 @@
              0             0             0             0             0             0        -99          0          0          0          0          0          0          0 # SR_autocorr
 #_no timevary SR parameters
 1 #do_recdev:  0=none; 1=devvector (R=F(SSB)+dev); 2=deviations (R=F(SSB)+dev); 3=deviations (R=R0*dev; dev2=R-f(SSB)); 4=like 3 with sum(dev2) adding penalty
-1971 # first year of main recr_devs; early devs can preceed this era
+1971 # first year of main recr_devs; early devs can precede this era
 2001 # last year of main recr_devs; forecast devs start in following year
 2 #_recdev phase 
 1 # (0/1) to read 13 advanced options
@@ -153,7 +152,7 @@
 #
 # all recruitment deviations
 #  1971R 1972R 1973R 1974R 1975R 1976R 1977R 1978R 1979R 1980R 1981R 1982R 1983R 1984R 1985R 1986R 1987R 1988R 1989R 1990R 1991R 1992R 1993R 1994R 1995R 1996R 1997R 1998R 1999R 2000R 2001R 2002F 2003F 2004F 2005F 2006F 2007F 2008F 2009F 2010F 2011F
-#  0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+#  0.177904 -0.0977746 0.0417632 -0.30636 0.323543 0.166863 0.520225 -0.51833 0.589664 -0.218869 0.160331 -0.226304 -0.42619 -0.613983 0.58044 0.401447 0.0798452 0.184367 -0.355343 0.590506 -0.608373 -0.111175 -0.75197 0.37205 -0.64155 0.874421 0.895215 -0.414685 -0.679256 0.251538 -0.23996 0 0 0 0 0 0 0 0 0 0
 #
 #Fishing Mortality info 
 0.3 # F ballpark value in units of annual_F
@@ -169,7 +168,7 @@
 # F rates by fleet x season
 # Yr:  1971 1972 1973 1974 1975 1976 1977 1978 1979 1980 1981 1982 1983 1984 1985 1986 1987 1988 1989 1990 1991 1992 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011
 # seas:  1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
-# FISHERY1 0 0.00180738 0.00908731 0.00916974 0.0186133 0.0286211 0.0394957 0.0516112 0.0653911 0.0940273 0.130025 0.146462 0.166396 0.190986 0.222019 0.262413 0.317281 0.350541 0.382958 0.410277 0.425893 0.325614 0.359158 0.404796 0.471435 0.577448 0.533219 0.660723 0.895778 1.45894 2.9 2.14853e-07 3.4798e-07 5.25874e-07 7.35155e-07 9.52567e-07 1.15649e-06 1.33783e-06 1.50143e-06 1.66027e-06 1.82913e-06
+# FISHERY1 0 0.00180712 0.00908217 0.00916357 0.0185719 0.0285438 0.0393364 0.051399 0.0648864 0.0922941 0.126004 0.140118 0.157325 0.175452 0.200131 0.227686 0.275563 0.292306 0.310299 0.308785 0.300559 0.216021 0.231858 0.232605 0.243049 0.265838 0.215116 0.228817 0.23055 0.24169 0.238888 6.93917e-06 0.0130708 0.0237211 0.0307653 0.0355291 0.0389269 0.0416786 0.0441351 0.0463925 0.0485372
 #
 #_Q_setup for fleets with cpue or survey data
 #_1:  fleet number
@@ -197,7 +196,7 @@
 #Pattern:_11; parm=2; selex=1.0  for specified min-max population length bin range
 #Pattern:_15; parm=0; mirror another age or length selex
 #Pattern:_6;  parm=2+special; non-parm len selex
-#Pattern:_43; parm=2+special+2;  like 6, with 2 additional param for scaling (average over bin range)
+#Pattern:_43; parm=2+special+2;  like 6, with 2 additional param for scaling (mean over bin range)
 #Pattern:_8;  parm=8; double_logistic with smooth transitions and constant above Linf option
 #Pattern:_9;  parm=6; simple 4-parm double logistic with starting length; parm 5 is first length; parm 6=1 does desc as offset
 #Pattern:_21; parm=2+special; non-parm len selex, read as pairs of size, then selex
@@ -207,7 +206,7 @@
 #Pattern:_2;  parm=6; double_normal with sel(minL) and sel(maxL), using joiners, back compatibile version of 24 with 3.30.18 and older
 #Pattern:_25; parm=3; exponential-logistic in length
 #Pattern:_27; parm=special+3; cubic spline in length; parm1==1 resets knots; parm1==2 resets all 
-#Pattern:_42; parm=special+3+2; cubic spline; like 27, with 2 additional param for scaling (average over bin range)
+#Pattern:_42; parm=special+3+2; cubic spline; like 27, with 2 additional param for scaling (mean over bin range)
 #_discard_options:_0=none;_1=define_retention;_2=retention&mortality;_3=all_discarded_dead;_4=define_dome-shaped_retention
 #_Pattern Discard Male Special
  0 0 0 0 # 1 FISHERY1
@@ -224,13 +223,13 @@
 #Pattern:_15; parm=0; mirror another age or length selex
 #Pattern:_16; parm=2; Coleraine - Gaussian
 #Pattern:_17; parm=nages+1; empirical as random walk  N parameters to read can be overridden by setting special to non-zero
-#Pattern:_41; parm=2+nages+1; // like 17, with 2 additional param for scaling (average over bin range)
+#Pattern:_41; parm=2+nages+1; // like 17, with 2 additional param for scaling (mean over bin range)
 #Pattern:_18; parm=8; double logistic - smooth transition
 #Pattern:_19; parm=6; simple 4-parm double logistic with starting age
 #Pattern:_20; parm=6; double_normal,using joiners
 #Pattern:_26; parm=3; exponential-logistic in age
 #Pattern:_27; parm=3+special; cubic spline in age; parm1==1 resets knots; parm1==2 resets all 
-#Pattern:_42; parm=2+special+3; // cubic spline; with 2 additional param for scaling (average over bin range)
+#Pattern:_42; parm=2+special+3; // cubic spline; with 2 additional param for scaling (mean over bin range)
 #Age patterns entered with value >100 create Min_selage from first digit and pattern from remainder
 #_Pattern Discard Male Special
  17 0 0 10 # 1 FISHERY1
@@ -243,19 +242,19 @@
 # 3   SURVEY2 LenSelex
 # 1   FISHERY1 AgeSelex
          -1000            10             0         -1000             3             0         -2          0          0          0          0          0          0          0  #  AgeSel_P1_FISHERY1(1)
-           -10            10       8.12465             3             3             0          2          0          0       1948       2011          4          0          0  #  AgeSel_P2_FISHERY1(1)
+           -10            10       8.12334             3             3             0          2          0          0       1948       2011          4          0          0  #  AgeSel_P2_FISHERY1(1)
            -10            10        1.0328             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P3_FISHERY1(1)
-           -10            10     0.0879167             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P4_FISHERY1(1)
+           -10            10     0.0879166             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P4_FISHERY1(1)
            -10            10      0.855116             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P5_FISHERY1(1)
            -10            10         0.328             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P6_FISHERY1(1)
-           -10            10     0.0962406             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P7_FISHERY1(1)
-           -10            10     0.0909618             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P8_FISHERY1(1)
-           -10            10    -0.0444585             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P9_FISHERY1(1)
+           -10            10     0.0962404             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P7_FISHERY1(1)
+           -10            10     0.0909619             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P8_FISHERY1(1)
+           -10            10    -0.0444586             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P9_FISHERY1(1)
            -10            10      0.538461             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P10_FISHERY1(1)
            -10            10             0             0             3             0         -5          0          0          0          0       0.25          0          0  #  AgeSel_P11_FISHERY1(1)
 # 2   SURVEY1 AgeSelex
          -1000            10             0         -1000             3             0         -2          0          0          0          0          0          0          0  #  AgeSel_P1_SURVEY1(2)
-           -10            10       7.48896             3             3             0          2          0          0       1948       2011          4          0          0  #  AgeSel_P2_SURVEY1(2)
+           -10            10       7.48927             3             3             0          2          0          0       1948       2011          4          0          0  #  AgeSel_P2_SURVEY1(2)
            -10            10      0.639258             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P3_SURVEY1(2)
            -10            10        0.8463             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P4_SURVEY1(2)
            -10            10     -0.417476             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P5_SURVEY1(2)
@@ -263,7 +262,7 @@
            -10            10      -2.30091             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P7_SURVEY1(2)
            -10            10       2.13292             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P8_SURVEY1(2)
            -10            10     -0.124955             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P9_SURVEY1(2)
-           -10            10    -0.0881771             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P10_SURVEY1(2)
+           -10            10    -0.0881772             0             3             6          2          0          0       1948       2011          4          0          0  #  AgeSel_P10_SURVEY1(2)
            -10            10             0             0             3             0         -5          0          0          0          0       0.25          0          0  #  AgeSel_P11_SURVEY1(2)
 # 3   SURVEY2 AgeSelex
              0            40             0             5            99             0        -99          0          0          0          0          0          0          0  #  minage@sel=1_SURVEY2(3)
@@ -271,8 +270,12 @@
 #_No_Dirichlet parameters
 #_no timevary selex parameters
 #
-0   #  use 2D_AR1 selectivity(0/1)
+0   #  use 2D_AR1 selectivity? (0/1)
 #_no 2D_AR1 selex offset used
+#_specs:  fleet, ymin, ymax, amin, amax, sigma_amax, use_rho, len1/age2, devphase, before_range, after_range
+#_sigma_amax>amin means create sigma parm for each bin from min to sigma_amax; sigma_amax<0 means just one sigma parm is read and used for all bins
+#_needed parameters follow each fleet's specifications
+# -9999  0 0 0 0 0 0 0 0 0 0 # terminator
 #
 # Tag loss and Tag reporting parameters go next
 0  # TG_custom:  0=no read and autogen if tag data exist; 1=read
