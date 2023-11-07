@@ -86,9 +86,9 @@
  -3 3 1 1 0.8 0 -3 0 0 0 0 0 0 0 # Eggs/kg_inter_Fem_GP_1
  -3 3 0 0 0.8 0 -3 0 0 0 0 0 0 0 # Eggs/kg_slope_wt_Fem_GP_1
 # Sex: 2  BioPattern: 1  NatMort
- 0.05 0.15 0.25 0.1 0.8 0 -3 0 0 0 0 0 0 0 # NatM_uniform_Mal_GP_1
+ 0.05 0.30 0.25 0.1 0.8 0 -3 0 0 0 0 0 0 0 # NatM_uniform_Mal_GP_1
 # Sex: 2  BioPattern: 1  Growth
- 1 45 0 36 10 0 -3 0 0 0 0 0 0 0 # L_at_Amin_Mal_GP_1
+ 0 45 0 36 10 0 -3 0 0 0 0 0 0 0 # L_at_Amin_Mal_GP_1
  40 90 65 70 10 6 -4 0 0 0 0 0 0 0 # L_at_Amax_Mal_GP_1
  0.05 0.25 0.24 0.15 0.8 6 -4 0 0 0 0 0 0 0 # VonBert_K_Mal_GP_1
  0.05 0.25 0.1 0.1 0.8 0 -3 0 0 0 0 0 0 0 # CV_young_Mal_GP_1
@@ -301,7 +301,7 @@
              0             2             0             0             0             0        -99          0          0          0          0          0          0          0  #  AgeSpline_Code_Type27_age_cubic-spline_6
         -0.001            10       1.25246             0           0.1             0          3          0          0          0          0          0          0          0  #  AgeSpline_GradLo_Type27_age_cubic-spline_6
            -10          0.01             0             0           0.1             0         -3          0          0          0          0          0          0          0  #  AgeSpline_GradHi_Type27_age_cubic-spline_6
-             1            20           0.5             0             0             0        -99          0          0          0          0          0          0          0  #  AgeSpline_Knot_1_Type27_age_cubic-spline_6
+             0            20           0.5             0             0             0        -99          0          0          0          0          0          0          0  #  AgeSpline_Knot_1_Type27_age_cubic-spline_6
              1            20             7             0             0             0        -99          0          0          0          0          0          0          0  #  AgeSpline_Knot_2_Type27_age_cubic-spline_6
              1            20            15             0             0             0        -99          0          0          0          0          0          0          0  #  AgeSpline_Knot_3_Type27_age_cubic-spline_6
             -5             5      -4.99988             0             0             0          2          0          0          0          0          0          0          0  #  AgeSpline_Val_1_Type27_age_cubic-spline_6

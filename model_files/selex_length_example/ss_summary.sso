@@ -1,7 +1,7 @@
 #V3.30.22.00;_safe;_compile_date:_Oct 30 2023;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.1
 selex_length_example_data.ss #_DataFile 
 selex_length_example_control.ss #_Control 
-Run_Date: Wed Nov  1 16:07:44 2023
+Run_Date: Tue Nov  7 12:22:25 2023
 Final_phase: 4  N_iterations: 115
 #_LIKELIHOOD 
 Label logL*Lambda
@@ -34,8 +34,8 @@ Mat50%_Fem_GP_1 55 0 Fix 0.5
 Mat_slope_Fem_GP_1 -0.25 0 Fix 0.458333
 Eggs/kg_inter_Fem_GP_1 1 0 Fix 0.666667
 Eggs/kg_slope_wt_Fem_GP_1 0 0 Fix 0.5
-NatM_uniform_Mal_GP_1 0.25 0 Fix 1.99998
-L_at_Amin_Mal_GP_1 0 0 Fix -0.0227273
+NatM_uniform_Mal_GP_1 0.25 0 Fix 0.799997
+L_at_Amin_Mal_GP_1 0 0 Fix 0
 L_at_Amax_Mal_GP_1 65 0 Fix 0.5
 VonBert_K_Mal_GP_1 0.24 0 Fix 0.949995
 CV_young_Mal_GP_1 0.1 0 Fix 0.249999
