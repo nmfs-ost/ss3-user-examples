@@ -106,7 +106,7 @@ jobs:
       - name: Commit
         run: |
           git add .
-          git commit -m "update user example files to new ss3 release"
+          git commit -m "update user example files for new ss3 release"
         
       - name: Create Pull Request 
         uses: peter-evans/create-pull-request@v3
