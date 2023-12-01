@@ -111,6 +111,6 @@ jobs:
       - name: Create Pull Request 
         uses: peter-evans/create-pull-request@v3
         with:
-          commit_message: Update test model files to new ss3 release
+          commit_message: Update test model files for new ss3 release
           branch: add-update-workflow-new
-          title: 'Update test model files to new ss3 release'
+          title: 'Update test model files for new ss3 release'
