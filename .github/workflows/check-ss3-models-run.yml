@@ -27,29 +27,28 @@ jobs:
         uses: r-lib/actions/setup-r@v2
         
       - name: Get the latest SS3 executable
-        run:  wget -O ss https://github.com/nmfs-stock-synthesis/ss3-source-code/releases/latest/download/ss_linux
-      #  run:  wget -O ss https://github.com/nmfs-stock-synthesis/ss3-source-code/releases/download/v3.30.20/ss_linux
+        run:  wget -O ss3 https://github.com/nmfs-ost/ss3-source-code/releases/latest/download/ss_linux
           
       - name: change permissions on ss exes
         run: |
-          mv ss model_files/ss
-          chmod a+x model_files/ss
+          mv ss3 model_files/ss3
+          chmod a+x model_files/ss3
       
       - name: run models
         run: |
           mod_names <- list.dirs(file.path("model_files"), full.names = FALSE, recursive = FALSE)
           mod_paths <- list.dirs(file.path("model_files"), full.names = TRUE, recursive = FALSE)
           print(mod_names)
-          run_ss_no_est <- function(dir) {
+          run_ss3_no_est <- function(dir) {
             wd <- getwd()
             on.exit(system(paste0("cd ", wd)))
             # run the models with estimation and see if model finishes without error
-            message("running ss on ", basename(dir))
-            system(paste0("cd ", dir, " && ../ss -stopph 0 -nohess"))
+            message("running ss3 on ", basename(dir))
+            system(paste0("cd ", dir, " && ../ss3 -stopph 0 -nohess"))
             model_ran <- file.exists(file.path(dir, "control.ss_new"))
             return(model_ran)
           }
-          mod_ran <- lapply(mod_paths, function(x) tryCatch(run_ss_no_est(x), 
+          mod_ran <- lapply(mod_paths, function(x) tryCatch(run_ss3_no_est(x), 
                                                    error = function(e) print(e)
                                                    ))
           mod_errors <- mod_names[unlist(lapply(mod_ran, function(x) "simpleError" %in% class(x)))]

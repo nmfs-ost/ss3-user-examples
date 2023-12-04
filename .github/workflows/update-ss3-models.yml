@@ -28,16 +28,13 @@ jobs:
 
       - name: install r4ss
         run: Rscript -e 'remotes::install_github("r4ss/r4ss")'
-      
-      # - name: install SSutils
-      #   run: Rscript -e 'remotes::install_github("r4ss/SSutils")'
 
       - name: install purrr
         run: Rscript -e 'install.packages("purrr")'
         
       - name: Get the latest SS3 executable
         run: |
-          wget -O ss3 https://github.com/nmfs-stock-synthesis/ss3-source-code/releases/latest/download/ss_linux
+          wget -O ss3 https://github.com/nmfs-ost/ss3-source-code/releases/latest/download/ss_linux
           sudo chmod a+x ss3
           mv ss3 /usr/local/bin/ss3
           export PATH=/usr/local/bin/ss3:$PATH
