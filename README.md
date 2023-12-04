@@ -29,11 +29,11 @@ To learn more about general stock assessment (i.e., not specific to Stock Synthe
 
 # How can I submit my model to be a user example?
 
-Model contributions are welcome! Please open a [pull request](https://github.com/nmfs-stock-synthesis/user-examples/pulls) after reading the [contribution guide](https://github.com/nmfs-stock-synthesis/user-examples#general-contribution-info) and [code of conduct](#code-of-conduct).
+Model contributions are welcome! Please open a [pull request](https://github.com/nmfs-ost/ss3-user-examples/pulls) after reading the [contribution guide](https://github.com/nmfs-ost/ss3-user-examples#general-contribution-info) and [code of conduct](#code-of-conduct).
 
 # How do I request a certain type of example?
 
-First, please take a look at the current examples available and their [notable features](#metadata-for-example-models). If there isn't one available that meets your needs, please request the type of example model that would be helpful by [opening an issue](https://github.com/nmfs-stock-synthesis/user-examples/issues) or sending an email to nmfs.stock.synthesis@noaa.gov.
+First, please take a look at the current examples available and their [notable features](#metadata-for-example-models). If there isn't one available that meets your needs, please request the type of example model that would be helpful by [opening an issue](https://github.com/nmfs-ost/ss3-user-examples/issues) or sending an email to nmfs.stock.synthesis@noaa.gov.
 
 # Metadata for example models
 | Model name | Notable features | 
@@ -47,12 +47,12 @@ First, please take a look at the current examples available and their [notable f
 | selex_length_example			  | Illustrates setup for 6 length-based selectivity types. [More detail below.](#selectivity-examples)|
 
 # Selectivity examples
-The models [selex_length_example](https://github.com/nmfs-stock-synthesis/user-examples/tree/main/model_files/selex_length_example) and [selex_age_example](https://github.com/nmfs-stock-synthesis/user-examples/tree/main/model_files/selex_age_example) can be used to see the control file setup for 5 length-based and 6 age-based selectivity types as shown in the figure below.
+The models [selex_length_example](https://github.com/nmfs-ost/ss3-user-examples/tree/main/model_files/selex_length_example) and [selex_age_example](https://github.com/nmfs-ost/ss3-user-examples/tree/main/model_files/selex_age_example) can be used to see the control file setup for 5 length-based and 6 age-based selectivity types as shown in the figure below.
 
-![selectivity at length and age as estimated in the 'selex_length_example' and 'selex_age_example' models](https://github.com/nmfs-stock-synthesis/user-examples/blob/main/figures/selex_shapes.png?raw=true)
+![selectivity at length and age as estimated in the 'selex_length_example' and 'selex_age_example' models](https://github.com/nmfs-ost/ss3-user-examples/blob/main/figures/selex_shapes.png?raw=true)
 
 These examples were created for a tutorial at the [2013 CAPAM workshop on selectivity](http://www.capamresearch.org/current-projects/selectivity). In these models, each fleet is provided the same simulated data so the large differences in estimated uncertainty associated with each type (as shown in the plot below) are an illustration of the flexibility of each type. Note: this figure depends on iteratively changing the fleet associated with the reported selectivity uncertainty specified at the bottom of the control file.
-![uncertainty in selectivity at length as estimated in the 'selex_length_example' models](https://github.com/nmfs-stock-synthesis/user-examples/blob/main/figures/selex_length_uncertainty.png?raw=true)
+![uncertainty in selectivity at length as estimated in the 'selex_length_example' models](https://github.com/nmfs-ost/ss3-user-examples/blob/main/figures/selex_length_uncertainty.png?raw=true)
 
 # Contributing guide
 
@@ -64,10 +64,10 @@ We strive to follow the [NMFS Fisheries Toolbox Contribution Guide](https://gith
 
 ## How to submit a pull request
 
-1. [Fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) the stock synthesis repository (or, if you are a member of the nmfs-stock-synthesis organization, clone the repository).
+1. [Fork](https://docs.github.com/en/github/getting-started-with-github/fork-a-repo) the stock synthesis repository (or, if you are a member of the ss3-team, clone the repository).
 2. Create a new branch and make the changes (likely adding new model files).
 3. Commit the changes and push up to the github fork.
-4. [Submit a pull request](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork) to the main branch of the user-examples repository.
+4. [Submit a pull request](https://docs.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request-from-a-fork) to the main branch of the ss3-user-examples repository.
 
 # Code of conduct
 
