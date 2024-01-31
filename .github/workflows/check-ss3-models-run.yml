@@ -7,9 +7,9 @@ on:
       - 'model_files/**'
     branches: [main]
   push:
-    paths:
-      - 'model_files/**'
-    branches: [main]
+    # paths:
+    #   - 'model_files/**'
+    # branches: [main]
 
 jobs:
   check-models-run:
