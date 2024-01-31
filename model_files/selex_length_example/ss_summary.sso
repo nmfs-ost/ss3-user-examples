@@ -1,7 +1,7 @@
-#V3.30.22.00;_safe;_compile_date:_Oct 30 2023;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.1
+#V3.30.22.1;_safe;_compile_date:_Jan 30 2024;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.1
 selex_length_example_data.ss #_DataFile 
 selex_length_example_control.ss #_Control 
-Run_Date: Tue Nov  7 12:22:25 2023
+Run_Date: Wed Jan 31 16:44:18 2024
 Final_phase: 4  N_iterations: 115
 #_LIKELIHOOD 
 Label logL*Lambda
@@ -160,7 +160,7 @@ Totbio_unfished 48344.1 1722.78
 SmryBio_unfished 47613.6 1696.75
 Recr_unfished 9232.06 328.992
 SSB_Btgt 7885.08 280.991
-SPR_Btgt 0.45 8.13463e-18
+SPR_Btgt 0.45 4.14671e-18
 annF_Btgt 0.111724 0.000509157
 Dead_Catch_Btgt 2571.17 74.9073
 SSB_SPR 6809.84 242.674
