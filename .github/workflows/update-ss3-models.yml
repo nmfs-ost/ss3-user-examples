@@ -79,7 +79,7 @@ jobs:
 
           ncores <- parallelly::availableCores(omit = 1)
           future::plan(future::multisession, workers = ncores)
-
+          
           furrr::future_map(
             .x = file.path(new_mod_dir_name, list.files(new_mod_dir_name)),
             .f = r4ss::run,
