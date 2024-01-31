@@ -30,11 +30,11 @@ jobs:
         run: Rscript -e 'remotes::install_github("r4ss/r4ss")'
 
       - name: install purrr
-        run: Rscript -e 'install.packages("purrr")'
+        run: Rscript -e 'install.packages(c("parallely", "furrr", "future"))'
         
       - name: Get the latest SS3 executable
         run: |
-          wget -O ss3 https://github.com/nmfs-ost/ss3-source-code/releases/latest/download/ss3_linux
+          wget -O ss3 https://github.com/nmfs-ost/ss3-source-code/releases/latest/download/ss_linux
           sudo chmod a+x ss3
           mv ss3 /usr/local/bin/ss3
           export PATH=/usr/local/bin/ss3:$PATH
@@ -77,7 +77,10 @@ jobs:
                                 outerdir.new = new_mod_dir_name,
                                 exe.file = NULL, verbose = FALSE)
 
-          purrr::map(
+          ncores <- parallelly::availableCores(omit = 1)
+          future::plan(future::multisession, workers = ncores)
+          
+          furrr::future_map(
             .x = file.path(new_mod_dir_name, list.files(new_mod_dir_name)),
             .f = r4ss::run,
             exe = "/usr/local/bin/ss3",
