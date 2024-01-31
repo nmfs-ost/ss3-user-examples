@@ -1,4 +1,4 @@
-#V3.30.22.00;_safe;_compile_date:_Oct 30 2023;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.1
+#V3.30.22.beta: not an official version of SS;_safe;_compile_date:_Jan 19 2024;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.1
 #_Stock_Synthesis_is_a_work_of_the_U.S._Government_and_is_not_subject_to_copyright_protection_in_the_United_States.
 #_Foreign_copyrights_may_apply._See_copyright.txt_for_more_information.
 #_User_support_available_at:NMFS.Stock.Synthesis@noaa.gov
@@ -86,7 +86,7 @@
  -3 3 1 1 0.8 0 -3 0 0 0 0 0 0 0 # Eggs/kg_inter_Fem_GP_1
  -3 3 0 0 0.8 0 -3 0 0 0 0 0 0 0 # Eggs/kg_slope_wt_Fem_GP_1
 # Sex: 2  BioPattern: 1  NatMort
- 0.05 0.30 0.25 0.1 0.8 0 -3 0 0 0 0 0 0 0 # NatM_uniform_Mal_GP_1
+ 0.05 0.3 0.25 0.1 0.8 0 -3 0 0 0 0 0 0 0 # NatM_uniform_Mal_GP_1
 # Sex: 2  BioPattern: 1  Growth
  0 45 0 36 10 0 -3 0 0 0 0 0 0 0 # L_at_Amin_Mal_GP_1
  40 90 65 70 10 6 -4 0 0 0 0 0 0 0 # L_at_Amax_Mal_GP_1
@@ -119,7 +119,7 @@
 0  # 0/1 to use steepness in initial equ recruitment calculation
 0  #  future feature:  0/1 to make realized sigmaR a function of SR curvature
 #_          LO            HI          INIT         PRIOR         PR_SD       PR_type      PHASE    env-var    use_dev   dev_mnyr   dev_mxyr     dev_PH      Block    Blk_Fxn #  parm_name
-             3            31       9.13416          10.3            10             0          1          0          0          0          0          0          0          0 # SR_LN(R0)
+             3            31       9.13044          10.3            10             0          1          0          0          0          0          0          0          0 # SR_LN(R0)
            0.2             1          0.75           0.7          0.05             1         -4          0          0          0          0          0          0          0 # SR_BH_steep
              0             2           0.6           0.8           0.8             0         -4          0          0          0          0          0          0          0 # SR_sigmaR
             -5             5             0             0             1             0         -4          0          0          0          0          0          0          0 # SR_regime
@@ -166,11 +166,11 @@
 # F rates by fleet x season
 # Yr:  2001 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013
 # seas:  1 1 1 1 1 1 1 1 1 1 1 1 1
-# Type1_size_logistic 0.0226986 0.0254319 0.0285931 0.0321999 0.0362962 0.040969 0.0463721 0.0527643 0.0605828 0.0705978 0.0842832 0.104855 0.104855
-# Type6_size_non-parametric 0.0312811 0.035017 0.0392254 0.0439362 0.0492361 0.0552497 0.0621736 0.0703312 0.0802666 0.0929378 0.110177 0.135977 0.135977
-# Type24_size_double-normal 0.0307201 0.0343894 0.0385106 0.0431125 0.0482731 0.0541106 0.0608177 0.068711 0.0783203 0.0905755 0.107252 0.132215 0.132215
-# Type25_size_exponential-logistic 0.0293307 0.0328424 0.0367964 0.0411919 0.0460778 0.0515624 0.0578339 0.0651996 0.0741665 0.0856157 0.101221 0.124624 0.124624
-# Type27_size_cubic-spline 0.0309788 0.0346789 0.0388343 0.0434678 0.0486553 0.0545172 0.0612488 0.0691694 0.0788117 0.0911096 0.107845 0.132899 0.132899
+# Type1_size_logistic 0.022789 0.0255442 0.0287333 0.0323757 0.0365177 0.0412502 0.0467332 0.0532367 0.0612183 0.0714895 0.085618 0.107075 0.107075
+# Type6_size_non-parametric 0.0312933 0.0350456 0.0392777 0.0440217 0.0493669 0.0554425 0.0624523 0.0707328 0.0808521 0.0938177 0.111574 0.138421 0.138421
+# Type24_size_double-normal 0.0307548 0.0344428 0.03859 0.0432267 0.0484336 0.0543334 0.0611257 0.0691402 0.0789303 0.0914738 0.108655 0.13464 0.13464
+# Type25_size_exponential-logistic 0.0293416 0.0328684 0.0368442 0.0412703 0.0461981 0.0517397 0.0580901 0.0655686 0.074704 0.0864224 0.102501 0.12686 0.12686
+# Type27_size_cubic-spline 0.0310236 0.0347438 0.0389264 0.0435961 0.0488312 0.0547567 0.0615753 0.0696191 0.0794447 0.0920344 0.10928 0.135364 0.135364
 #
 #_Q_setup for fleets with cpue or survey data
 #_1:  fleet number
@@ -185,7 +185,7 @@
 #
 #_Q_parms(if_any);Qunits_are_ln(q)
 #_          LO            HI          INIT         PRIOR         PR_SD       PR_type      PHASE    env-var    use_dev   dev_mnyr   dev_mxyr     dev_PH      Block    Blk_Fxn  #  parm_name
-           -25            25       -8.3854             0             1             0         -1          0          0          0          0          0          0          0  #  LnQ_base_Type1_size_logistic(1)
+           -25            25      -8.38712             0             1             0         -1          0          0          0          0          0          0          0  #  LnQ_base_Type1_size_logistic(1)
 #_no timevary Q parameters
 #
 #_size_selex_patterns
@@ -241,37 +241,37 @@
 #
 #_          LO            HI          INIT         PRIOR         PR_SD       PR_type      PHASE    env-var    use_dev   dev_mnyr   dev_mxyr     dev_PH      Block    Blk_Fxn  #  parm_name
 # 1   Type1_size_logistic LenSelex
-            25            80       32.8734            50          0.01             1          2          0          0          0          0          0          0          0  #  Size_inflection_Type1_size_logistic(1)
-          0.01            60       6.65077            15          0.01             1          3          0          0          0          0          0          0          0  #  Size_95%width_Type1_size_logistic(1)
+            25            80       32.8819            50          0.01             1          2          0          0          0          0          0          0          0  #  Size_inflection_Type1_size_logistic(1)
+          0.01            60       6.66179            15          0.01             1          3          0          0          0          0          0          0          0  #  Size_95%width_Type1_size_logistic(1)
 # 2   Type6_size_non-parametric LenSelex
              1           100            25             0           0.5             0        -99          0          0          0          0          0          0          0  #  SizeSel_P1_Type6_size_non-parametric(2)
              1           100            70             0           0.5             0        -99          0          0          0          0          0          0          0  #  SizeSel_P2_Type6_size_non-parametric(2)
-            -5             5      -2.10081             0           0.5             0          2          0          0          0          0          0          0          0  #  SizeSel_P3_Type6_size_non-parametric(2)
-            -5             5     -0.101585             0           0.5             0          2          0          0          0          0          0          0          0  #  SizeSel_P4_Type6_size_non-parametric(2)
-            -5             5      0.265656             0           0.5             0          2          0          0          0          0          0          0          0  #  SizeSel_P5_Type6_size_non-parametric(2)
-            -5             5      -0.26885             0           0.5             0          2          0          0          0          0          0          0          0  #  SizeSel_P6_Type6_size_non-parametric(2)
+            -5             5      -2.10883             0           0.5             0          2          0          0          0          0          0          0          0  #  SizeSel_P3_Type6_size_non-parametric(2)
+            -5             5     -0.105834             0           0.5             0          2          0          0          0          0          0          0          0  #  SizeSel_P4_Type6_size_non-parametric(2)
+            -5             5      0.259866             0           0.5             0          2          0          0          0          0          0          0          0  #  SizeSel_P5_Type6_size_non-parametric(2)
+            -5             5     -0.270694             0           0.5             0          2          0          0          0          0          0          0          0  #  SizeSel_P6_Type6_size_non-parametric(2)
             -5             5          -0.1             0           0.5             0         -2          0          0          0          0          0          0          0  #  SizeSel_P7_Type6_size_non-parametric(2)
 # 3   Type24_size_double-normal LenSelex
-            30            60       45.8769            36             5             0          2          0          0          0          0          0          0          0  #  Size_DblN_peak_Type24_size_double-normal(3)
-            -7             7      -3.19566          -0.5             2             0          3          0          0          0          0          0          0          0  #  Size_DblN_top_logit_Type24_size_double-normal(3)
-            -5            10       5.31147          1.75             5             0          3          0          0          0          0          0          0          0  #  Size_DblN_ascend_se_Type24_size_double-normal(3)
-            -5            10       1.71063           0.1             2             0          4          0          0          0          0          0          0          0  #  Size_DblN_descend_se_Type24_size_double-normal(3)
+            30            60       45.8546            36             5             0          2          0          0          0          0          0          0          0  #  Size_DblN_peak_Type24_size_double-normal(3)
+            -7             7      -3.18065          -0.5             2             0          3          0          0          0          0          0          0          0  #  Size_DblN_top_logit_Type24_size_double-normal(3)
+            -5            10       5.30856          1.75             5             0          3          0          0          0          0          0          0          0  #  Size_DblN_ascend_se_Type24_size_double-normal(3)
+            -5            10       1.69955           0.1             2             0          4          0          0          0          0          0          0          0  #  Size_DblN_descend_se_Type24_size_double-normal(3)
           -999            15          -999            -1             5             0        -99          0          0          0          0          0          0          0  #  Size_DblN_start_logit_Type24_size_double-normal(3)
-          -999            15      0.741647             1             5             0          4          0          0          0          0          0          0          0  #  Size_DblN_end_logit_Type24_size_double-normal(3)
+          -999            15       0.75363             1             5             0          4          0          0          0          0          0          0          0  #  Size_DblN_end_logit_Type24_size_double-normal(3)
 # 4   Type25_size_exponential-logistic LenSelex
-          0.02             1      0.381735             0           0.5             0          2          0          0          0          0          0          0          0  #  SizeSel_P1_Type25_size_exponential-logistic(4)
-          0.01          0.99       0.36601             0           0.5             0          2          0          0          0          0          0          0          0  #  SizeSel_P2_Type25_size_exponential-logistic(4)
-         0.001           0.6      0.043592             0           0.5             0          2          0          0          0          0          0          0          0  #  SizeSel_P3_Type25_size_exponential-logistic(4)
+          0.02             1      0.383448             0           0.5             0          2          0          0          0          0          0          0          0  #  SizeSel_P1_Type25_size_exponential-logistic(4)
+          0.01          0.99      0.365946             0           0.5             0          2          0          0          0          0          0          0          0  #  SizeSel_P2_Type25_size_exponential-logistic(4)
+         0.001           0.6     0.0427167             0           0.5             0          2          0          0          0          0          0          0          0  #  SizeSel_P3_Type25_size_exponential-logistic(4)
 # 5   Type27_size_cubic-spline LenSelex
              0             2             0             0             0             0         -9          0          0          0          0          0          0          0  #  SizeSpline_Code_Type27_size_cubic-spline(5)
-        -0.001            10      0.204043             0           0.1             0          3          0          0          0          0          0          0          0  #  SizeSpline_GradLo_Type27_size_cubic-spline(5)
+        -0.001            10      0.204932             0           0.1             0          3          0          0          0          0          0          0          0  #  SizeSpline_GradLo_Type27_size_cubic-spline(5)
            -10          0.01             0             0           0.1             0         -3          0          0          0          0          0          0          0  #  SizeSpline_GradHi_Type27_size_cubic-spline(5)
              1            70            10             0             0             0        -99          0          0          0          0          0          0          0  #  SizeSpline_Knot_1_Type27_size_cubic-spline(5)
              1            70            45             0             0             0        -99          0          0          0          0          0          0          0  #  SizeSpline_Knot_2_Type27_size_cubic-spline(5)
              1            70            60             0             0             0        -99          0          0          0          0          0          0          0  #  SizeSpline_Knot_3_Type27_size_cubic-spline(5)
-            -5             5      -4.96614             0             0             0          2          0          0          0          0          0          0          0  #  SizeSpline_Val_1_Type27_size_cubic-spline(5)
+            -5             5      -4.96774             0             0             0          2          0          0          0          0          0          0          0  #  SizeSpline_Val_1_Type27_size_cubic-spline(5)
             -5             5             0             0             0             0         -2          0          0          0          0          0          0          0  #  SizeSpline_Val_2_Type27_size_cubic-spline(5)
-            -5             5     -0.415755             0             0             0          2          0          0          0          0          0          0          0  #  SizeSpline_Val_3_Type27_size_cubic-spline(5)
+            -5             5     -0.412331             0             0             0          2          0          0          0          0          0          0          0  #  SizeSpline_Val_3_Type27_size_cubic-spline(5)
 # 1   Type1_size_logistic AgeSelex
 # 2   Type6_size_non-parametric AgeSelex
 # 3   Type24_size_double-normal AgeSelex
