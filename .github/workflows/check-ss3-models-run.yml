@@ -25,6 +25,9 @@ jobs:
           
       - name: setup R  
         uses: r-lib/actions/setup-r@v2
+
+      - name: install r packages
+        run: Rscript -e 'install.packages(c("parallely", "furrr", "future"))'
         
       - name: Get the latest SS3 executable
         run:  wget -O ss3 https://github.com/nmfs-ost/ss3-source-code/releases/latest/download/ss_linux
@@ -48,9 +51,14 @@ jobs:
             model_ran <- file.exists(file.path(dir, "control.ss_new"))
             return(model_ran)
           }
-          mod_ran <- lapply(mod_paths, function(x) tryCatch(run_ss3_no_est(x), 
+
+          ncores <- parallelly::availableCores(omit = 1)
+          future::plan(future::multisession, workers = ncores)
+
+          mod_ran <- furrr::future_map(mod_paths, function(x) tryCatch(run_ss3_no_est(x), 
                                                    error = function(e) print(e)
                                                    ))
+                                                   
           mod_errors <- mod_names[unlist(lapply(mod_ran, function(x) "simpleError" %in% class(x)))]
           success <- TRUE
           if(length(mod_errors) > 0) {
