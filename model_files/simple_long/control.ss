@@ -1,4 +1,4 @@
-#V3.30.22.1;_safe;_compile_date:_Jan 30 2024;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.1
+#V3.30.23.00;_safe;_compile_date:_Oct 31 2024;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.2
 #_Stock_Synthesis_is_a_work_of_the_U.S._Government_and_is_not_subject_to_copyright_protection_in_the_United_States.
 #_Foreign_copyrights_may_apply._See_copyright.txt_for_more_information.
 #_User_support_available_at:NMFS.Stock.Synthesis@noaa.gov
@@ -148,7 +148,7 @@
 #
 #_placeholder for full parameter lines for recruitment cycles
 # read specified recr devs
-#_Yr Input_value
+#_year Input_value
 #
 # all recruitment deviations
 #  1971R 1972R 1973R 1974R 1975R 1976R 1977R 1978R 1979R 1980R 1981R 1982R 1983R 1984R 1985R 1986R 1987R 1988R 1989R 1990R 1991R 1992R 1993R 1994R 1995R 1996R 1997R 1998R 1999R 2000R 2001R 2002R 2003R 2004R 2005R 2006R 2007R 2008R 2009R 2010R 2011R 2012R 2013R 2014R 2015R 2016R 2017R 2018R 2019R 2020F 2021F 2022F 2023F 2024F 2025F 2026F 2027F 2028F 2029F 2030F 2031F
@@ -166,13 +166,15 @@
 #_ LO HI INIT PRIOR PR_SD  PR_type  PHASE
 #
 # F rates by fleet x season
-# Yr:  1971 1972 1973 1974 1975 1976 1977 1978 1979 1980 1981 1982 1983 1984 1985 1986 1987 1988 1989 1990 1991 1992 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025 2026 2027 2028 2029 2030 2031
+#_year:  1971 1972 1973 1974 1975 1976 1977 1978 1979 1980 1981 1982 1983 1984 1985 1986 1987 1988 1989 1990 1991 1992 1993 1994 1995 1996 1997 1998 1999 2000 2001 2002 2003 2004 2005 2006 2007 2008 2009 2010 2011 2012 2013 2014 2015 2016 2017 2018 2019 2020 2021 2022 2023 2024 2025 2026 2027 2028 2029 2030 2031
 # seas:  1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1
 # FISHERY 0 0.00210498 0.0105794 0.0106736 0.0216442 0.0332336 0.0458004 0.0597219 0.0753927 0.107205 0.146014 0.161383 0.179341 0.200852 0.227579 0.262209 0.308585 0.329747 0.343319 0.342603 0.324281 0.226915 0.230921 0.237485 0.248388 0.265019 0.210557 0.218821 0.225282 0.227651 0.226523 0.146427 0.139878 0.135111 0.131604 0.128616 0.12546 0.0596804 0.0555283 0.0517757 0.0484844 0.092722 0.0904277 0.0883334 0.0862246 0.0839229 0.123779 0.12292 0.121571 0.119796 0.117602 0.0693456 0.0717268 0.0739528 0.076026 0.0778591 0.0793604 0.0805111 0.0813594 0.0819789 0.0824391
 #
-#_Q_setup for fleets with cpue or survey data
+#_Q_setup for fleets with cpue or survey or deviation data
 #_1:  fleet number
-#_2:  link type: (1=simple q, 1 parm; 2=mirror simple q, 1 mirrored parm; 3=q and power, 2 parm; 4=mirror with offset, 2 parm)
+#_2:  link type: 1=simple q; 2=mirror; 3=power (+1 parm); 4=mirror with scale (+1p); 5=offset (+1p); 6=offset & power (+2p)
+#_     where power is applied as y = q * x ^ (1 + power); so a power value of 0 has null effect
+#_     and with the offset included it is y = q * (x + offset) ^ (1 + power)
 #_3:  extra input for link, i.e. mirror fleet# or dev index number
 #_4:  0/1 to select extra sd parameter
 #_5:  0/1 for biasadj or not
@@ -182,7 +184,7 @@
          3         1         0         0         0         0  #  SURVEY2
 -9999 0 0 0 0 0
 #
-#_Q_parms(if_any);Qunits_are_ln(q)
+#_Q_parameters
 #_          LO            HI          INIT         PRIOR         PR_SD       PR_type      PHASE    env-var    use_dev   dev_mnyr   dev_mxyr     dev_PH      Block    Blk_Fxn  #  parm_name
             -7             5      0.450131             0             1             0          1          0          0          0          0          0          0          0  #  LnQ_base_SURVEY1(2)
              0           0.5             0          0.05             1             0         -4          0          0          0          0          0          0          0  #  Q_extraSD_SURVEY1(2)
@@ -199,7 +201,7 @@
 #Pattern:_43; parm=2+special+2;  like 6, with 2 additional param for scaling (mean over bin range)
 #Pattern:_8;  parm=8; double_logistic with smooth transitions and constant above Linf option
 #Pattern:_9;  parm=6; simple 4-parm double logistic with starting length; parm 5 is first length; parm 6=1 does desc as offset
-#Pattern:_21; parm=2+special; non-parm len selex, read as pairs of size, then selex
+#Pattern:_21; parm=2*special; non-parm len selex, read as N break points, then N selex parameters
 #Pattern:_22; parm=4; double_normal as in CASAL
 #Pattern:_23; parm=6; double_normal where final value is directly equal to sp(6) so can be >1.0
 #Pattern:_24; parm=6; double_normal with sel(minL) and sel(maxL), using joiners
@@ -278,7 +280,7 @@
  #_5=mult_by_agecomp_N
  #_6=mult_by_size-at-age_N
  #_7=mult_by_generalized_sizecomp
-#_Factor  Fleet  Value
+#_factor  fleet  value
  -9999   1    0  # terminator
 #
 4 #_maxlambdaphase
