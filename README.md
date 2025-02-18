@@ -46,6 +46,8 @@ First, please take a look at the current examples available and their [notable f
 | selex_age_example				  | Illustrates setup for 6 age-based selectivity types. [More detail below.](#selectivity-examples)|
 | selex_length_example			  | Illustrates setup for 6 length-based selectivity types. [More detail below.](#selectivity-examples)|
 
+**NOTE: Additional model files with other ss3 features implemented (e.g. seasons, areas, growth morphs, etc.) can be found in the [ss3-test-models repository](https://github.com/nmfs-ost/ss3-test-models)**
+
 # Selectivity examples
 The models [selex_length_example](https://github.com/nmfs-ost/ss3-user-examples/tree/main/model_files/selex_length_example) and [selex_age_example](https://github.com/nmfs-ost/ss3-user-examples/tree/main/model_files/selex_age_example) can be used to see the control file setup for 5 length-based and 6 age-based selectivity types as shown in the figure below.
 
