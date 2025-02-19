@@ -4,7 +4,7 @@ on:
     branches:
       - main
     paths:
-      - 'models/**/**'
+      - 'model_files/**/**'
     types: [closed]
 
 jobs:
