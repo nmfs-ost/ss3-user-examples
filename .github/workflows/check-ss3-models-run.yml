@@ -4,11 +4,11 @@ on:
   workflow_dispatch:
   pull_request:
     paths:
-      - 'model_files/**'
+      - 'model_files/**/**'
     branches: [main]
   push:
     paths:
-      - 'model_files/**'
+      - 'model_files/**/**'
     branches: [main]
 
 jobs:

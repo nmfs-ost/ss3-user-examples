@@ -3,6 +3,8 @@ on:
   pull_request:
     branches:
       - main
+    paths:
+      - 'model_files/**/**'
     types: [closed]
 
 jobs:
@@ -18,7 +20,7 @@ jobs:
     steps:
 
       - name: Checkout repo
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
 
       - name: Get the ss last tag on unix
         id: get-latest-tag-unix
