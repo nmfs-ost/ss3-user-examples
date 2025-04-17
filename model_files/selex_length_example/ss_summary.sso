@@ -1,12 +1,12 @@
-#V3.30.23.1;_safe;_compile_date:_Dec  5 2024;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.2
+#V3.30.23.2;_safe;_compile_date:_Apr 17 2025;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.2
 selex_length_example_data.ss #_DataFile 
 selex_length_example_control.ss #_Control 
-Run_Date: Tue Dec 10 16:50:46 2024
-Final_phase: 4  N_iterations: 108
+Run_Date: Thu Apr 17 19:46:08 2025
+Final_phase: 4  N_iterations: 106
 #_LIKELIHOOD 
 Label logL*Lambda
 TOTAL_LogL 370.433
-Catch 7.2055e-08
+Catch 7.20549e-08
 Survey -21.4856
 Length_comp 125.506
 Age_comp 265.238
@@ -53,31 +53,31 @@ SR_autocorr 0 0 Fix 0
 #_Catchability
 LnQ_base_Type1_size_logistic(1) -8.38712 0 Fix 0.332258
 #_Selectivity
-Size_inflection_Type1_size_logistic(1) 32.8819 0.953604 Act 0.143307
-Size_95%width_Type1_size_logistic(1) 6.66179 2.33267 Act 0.110882
+Size_inflection_Type1_size_logistic(1) 32.8819 0.953605 Act 0.143307
+Size_95%width_Type1_size_logistic(1) 6.6618 2.33268 Act 0.110882
 SizeSel_P1_Type6_size_non-parametric(2) 25 0 Fix 0.242424
 SizeSel_P2_Type6_size_non-parametric(2) 70 0 Fix 0.69697
-SizeSel_P3_Type6_size_non-parametric(2) -2.10883 0.746051 Act 0.289117
+SizeSel_P3_Type6_size_non-parametric(2) -2.10882 0.746051 Act 0.289118
 SizeSel_P4_Type6_size_non-parametric(2) -0.105834 0.254621 Act 0.489417
 SizeSel_P5_Type6_size_non-parametric(2) 0.259866 0.238579 Act 0.525987
 SizeSel_P6_Type6_size_non-parametric(2) -0.270694 0.294981 Act 0.472931
 SizeSel_P7_Type6_size_non-parametric(2) -0.1 0 Fix 0.49
-Size_DblN_peak_Type24_size_double-normal(3) 45.8546 3.62705 Act 0.528487
-Size_DblN_top_logit_Type24_size_double-normal(3) -3.18065 2.56984 Act 0.272811
-Size_DblN_ascend_se_Type24_size_double-normal(3) 5.30856 0.591984 Act 0.687237
-Size_DblN_descend_se_Type24_size_double-normal(3) 1.69955 2.49121 Act 0.446636
+Size_DblN_peak_Type24_size_double-normal(3) 45.8546 3.62705 Act 0.528486
+Size_DblN_top_logit_Type24_size_double-normal(3) -3.18064 2.56985 Act 0.272811
+Size_DblN_ascend_se_Type24_size_double-normal(3) 5.30855 0.591986 Act 0.687237
+Size_DblN_descend_se_Type24_size_double-normal(3) 1.69956 2.49122 Act 0.446637
 Size_DblN_start_logit_Type24_size_double-normal(3) -999 0 Fix 0
-Size_DblN_end_logit_Type24_size_double-normal(3) 0.75363 0.46088 Act 0.98595
-SizeSel_P1_Type25_size_exponential-logistic(4) 0.383448 0.13191 Act 0.370865
-SizeSel_P2_Type25_size_exponential-logistic(4) 0.365946 0.0233051 Act 0.36321
-SizeSel_P3_Type25_size_exponential-logistic(4) 0.0427167 0.0345506 Act 0.0696437
+Size_DblN_end_logit_Type24_size_double-normal(3) 0.753631 0.460881 Act 0.98595
+SizeSel_P1_Type25_size_exponential-logistic(4) 0.383449 0.13191 Act 0.370866
+SizeSel_P2_Type25_size_exponential-logistic(4) 0.365946 0.0233052 Act 0.363209
+SizeSel_P3_Type25_size_exponential-logistic(4) 0.0427164 0.0345505 Act 0.0696433
 SizeSpline_Code_Type27_size_cubic-spline(5) 0 0 Fix 0
-SizeSpline_GradLo_Type27_size_cubic-spline(5) 0.204932 0.114507 Act 0.0205912
+SizeSpline_GradLo_Type27_size_cubic-spline(5) 0.204932 0.114508 Act 0.0205912
 SizeSpline_GradHi_Type27_size_cubic-spline(5) 0 0 Fix 0.999001
 SizeSpline_Knot_1_Type27_size_cubic-spline(5) 10 0 Fix 0.130435
 SizeSpline_Knot_2_Type27_size_cubic-spline(5) 45 0 Fix 0.637681
 SizeSpline_Knot_3_Type27_size_cubic-spline(5) 60 0 Fix 0.855072
-SizeSpline_Val_1_Type27_size_cubic-spline(5) -4.96774 1.01656 Act 0.00322586
+SizeSpline_Val_1_Type27_size_cubic-spline(5) -4.96774 1.01656 Act 0.00322589
 SizeSpline_Val_2_Type27_size_cubic-spline(5) 0 0 Fix 0.5
 SizeSpline_Val_3_Type27_size_cubic-spline(5) -0.412331 0.143268 Act 0.458767
 #_Derived_Quantities
@@ -106,7 +106,7 @@ Recr_2003 9032.83 331.541
 Recr_2004 8899.18 334.131
 Recr_2005 8742.15 338.358
 Recr_2006 8561.14 345.041
-Recr_2007 8353.69 355.339
+Recr_2007 8353.69 355.34
 Recr_2008 8114.58 371.032
 Recr_2009 7834.6 395.045
 Recr_2010 7498.42 432.478
@@ -160,7 +160,7 @@ Totbio_unfished 48344.1 1722.78
 SmryBio_unfished 47613.6 1696.75
 Recr_unfished 9232.06 328.992
 SSB_Btgt 7885.08 280.991
-SPR_Btgt 0.45 3.76834e-18
+SPR_Btgt 0.45 4.52343e-18
 annF_Btgt 0.111724 0.000509157
 Dead_Catch_Btgt 2571.17 74.9073
 SSB_SPR 6809.84 242.674
@@ -175,52 +175,52 @@ B_MSY/SSB_unfished 0.261239 0.000603079
 ForeCatch_2013 4010.01 212.306
 OFLCatch_2013 4010.01 212.306
 #_Extra_stdev
-LenSelex_std_4_Fem_L_10 0.000172053 0.000532121
-LenSelex_std_4_Fem_L_14 0.000746742 0.00190108
-LenSelex_std_4_Fem_L_18 0.00323685 0.00647004
-LenSelex_std_4_Fem_L_22 0.0139478 0.0202246
-LenSelex_std_4_Fem_L_26 0.0585173 0.0525968
-LenSelex_std_4_Fem_L_30 0.219745 0.0853711
-LenSelex_std_4_Fem_L_34 0.586673 0.0907663
-LenSelex_std_4_Fem_L_38 0.914559 0.0753188
-LenSelex_std_4_Fem_L_42 0.999873 0.00257512
-LenSelex_std_4_Fem_L_46 0.971527 0.0289136
+LenSelex_std_4_Fem_L_10 0.000172049 0.000532111
+LenSelex_std_4_Fem_L_14 0.000746729 0.00190105
+LenSelex_std_4_Fem_L_18 0.00323681 0.00646997
+LenSelex_std_4_Fem_L_22 0.0139477 0.0202245
+LenSelex_std_4_Fem_L_26 0.058517 0.0525967
+LenSelex_std_4_Fem_L_30 0.219744 0.0853711
+LenSelex_std_4_Fem_L_34 0.586674 0.0907665
+LenSelex_std_4_Fem_L_38 0.914559 0.0753187
+LenSelex_std_4_Fem_L_42 0.999873 0.00257496
+LenSelex_std_4_Fem_L_46 0.971527 0.0289137
 LenSelex_std_4_Fem_L_50 0.917324 0.0466184
-LenSelex_std_4_Fem_L_54 0.860661 0.0673231
-LenSelex_std_4_Fem_L_58 0.806385 0.0889801
+LenSelex_std_4_Fem_L_54 0.860661 0.0673232
+LenSelex_std_4_Fem_L_58 0.806386 0.0889802
 LenSelex_std_4_Fem_L_62 0.755308 0.109204
 LenSelex_std_4_Fem_L_66 0.70742 0.127178
-LenSelex_std_4_Fem_L_70 0.662559 0.14275
-LenSelex_std_4_Fem_L_74 0.620541 0.156004
-LenSelex_std_4_Fem_L_78 0.581188 0.167101
-LenSelex_std_4_Fem_L_82 0.54433 0.176223
+LenSelex_std_4_Fem_L_70 0.66256 0.14275
+LenSelex_std_4_Fem_L_74 0.620542 0.156005
+LenSelex_std_4_Fem_L_78 0.581189 0.167101
+LenSelex_std_4_Fem_L_82 0.544331 0.176224
 LenSelex_std_4_Fem_L_86 0.50981 0.183556
-LenSelex_std_4_Fem_L_90 0.477478 0.189277
-LenSelex_std_4_Fem_L_94 0.447197 0.193553
-LenSelex_std_4_Fem_L_98 0.418837 0.196538
-LenSelex_std_4_Mal_L_10 0.000172053 0.000532121
-LenSelex_std_4_Mal_L_14 0.000746742 0.00190108
-LenSelex_std_4_Mal_L_18 0.00323685 0.00647004
-LenSelex_std_4_Mal_L_22 0.0139478 0.0202246
-LenSelex_std_4_Mal_L_26 0.0585173 0.0525968
-LenSelex_std_4_Mal_L_30 0.219745 0.0853711
-LenSelex_std_4_Mal_L_34 0.586673 0.0907663
-LenSelex_std_4_Mal_L_38 0.914559 0.0753188
-LenSelex_std_4_Mal_L_42 0.999873 0.00257512
-LenSelex_std_4_Mal_L_46 0.971527 0.0289136
+LenSelex_std_4_Fem_L_90 0.477479 0.189277
+LenSelex_std_4_Fem_L_94 0.447198 0.193553
+LenSelex_std_4_Fem_L_98 0.418838 0.196539
+LenSelex_std_4_Mal_L_10 0.000172049 0.000532111
+LenSelex_std_4_Mal_L_14 0.000746729 0.00190105
+LenSelex_std_4_Mal_L_18 0.00323681 0.00646997
+LenSelex_std_4_Mal_L_22 0.0139477 0.0202245
+LenSelex_std_4_Mal_L_26 0.058517 0.0525967
+LenSelex_std_4_Mal_L_30 0.219744 0.0853711
+LenSelex_std_4_Mal_L_34 0.586674 0.0907665
+LenSelex_std_4_Mal_L_38 0.914559 0.0753187
+LenSelex_std_4_Mal_L_42 0.999873 0.00257496
+LenSelex_std_4_Mal_L_46 0.971527 0.0289137
 LenSelex_std_4_Mal_L_50 0.917324 0.0466184
-LenSelex_std_4_Mal_L_54 0.860661 0.0673231
-LenSelex_std_4_Mal_L_58 0.806385 0.0889801
+LenSelex_std_4_Mal_L_54 0.860661 0.0673232
+LenSelex_std_4_Mal_L_58 0.806386 0.0889802
 LenSelex_std_4_Mal_L_62 0.755308 0.109204
 LenSelex_std_4_Mal_L_66 0.70742 0.127178
-LenSelex_std_4_Mal_L_70 0.662559 0.14275
-LenSelex_std_4_Mal_L_74 0.620541 0.156004
-LenSelex_std_4_Mal_L_78 0.581188 0.167101
-LenSelex_std_4_Mal_L_82 0.54433 0.176223
+LenSelex_std_4_Mal_L_70 0.66256 0.14275
+LenSelex_std_4_Mal_L_74 0.620542 0.156005
+LenSelex_std_4_Mal_L_78 0.581189 0.167101
+LenSelex_std_4_Mal_L_82 0.544331 0.176224
 LenSelex_std_4_Mal_L_86 0.50981 0.183556
-LenSelex_std_4_Mal_L_90 0.477478 0.189277
-LenSelex_std_4_Mal_L_94 0.447197 0.193553
-LenSelex_std_4_Mal_L_98 0.418837 0.196538
+LenSelex_std_4_Mal_L_90 0.477479 0.189277
+LenSelex_std_4_Mal_L_94 0.447198 0.193553
+LenSelex_std_4_Mal_L_98 0.418838 0.196539
 NatAge_std_1_Fem_A_20 9.16032 3.50756
 NatAge_std_1_Mal_A_20 8.67737 3.16645
 ln(SPB)_2001 9.88902 0.0356358
@@ -240,7 +240,7 @@ SmryBio_2009 18668.5 0.0
 SmryBio_2010 16243.7 0.0
 SmryBio_2011 13884.5 0.0
 SmryBio_2012 11524 0.0
-SmryBio_2013 9083.46 0.0
+SmryBio_2013 9083.47 0.0
 #_survey_stdev 0
 #_Biomass
 TotBio_Virgin 48344.1 0.0
