@@ -50,27 +50,28 @@ jobs:
           mod_dir_name <- dirs_test[grepl("model", dirs_test)]
           mod_dir_name <- gsub(".*\\./", "", mod_dir_name)
 
-          update_ref_files <- function(new_mod_path, ss_examples_folder = file.path(getwd(), mod_dir_name)) {
-          mod_name <- basename(new_mod_path)
-          git_mod_path <- file.path(ss_examples_folder, mod_name)
-          # list model files that need to be moved
-          files_to_move <- c("ss_summary.sso")
-          # copy model files from new_mod_path folder to the git_mod_path folder,
-          results_of_move <- lapply(files_to_move,
-                                      function(x, new_mod_path, git_mod_path) {
-              file.remove(file.path(git_mod_path, x))
-              file.copy(from = file.path(new_mod_path, x),
-                        to = file.path(git_mod_path, x), 
-                        overwrite = FALSE) 
-              #to make sure worked:
-              worked <- file.exists(file.path(git_mod_path, x))
-          }, new_mod_path = new_mod_path, git_mod_path = git_mod_path)
-          if(all(unlist(results_of_move) == TRUE)) {
-               files_replaced <- TRUE
-          } else {
-              files_replaced <- FALSE
-          }
-          files_replaced
+          update_ref_files <- function(new_mod_path, ss_examples_folder = file.path(getwd(), mod_dir_name)) 
+          {
+            mod_name <- basename(new_mod_path)
+            git_mod_path <- file.path(ss_examples_folder, mod_name)
+            # list model files that need to be moved
+            files_to_move <- c("ss_summary.sso")
+            # copy model files from new_mod_path folder to the git_mod_path folder,
+            results_of_move <- lapply(files_to_move,
+                                        function(x, new_mod_path, git_mod_path) {
+                file.remove(file.path(git_mod_path, x))
+                file.copy(from = file.path(new_mod_path, x),
+                          to = file.path(git_mod_path, x), 
+                          overwrite = FALSE) 
+                #to make sure worked:
+                worked <- file.exists(file.path(git_mod_path, x))
+            }, new_mod_path = new_mod_path, git_mod_path = git_mod_path)
+            if(all(unlist(results_of_move) == TRUE)) {
+                files_replaced <- TRUE
+            } else {
+                files_replaced <- FALSE
+            }
+            files_replaced
           }
 
           new_mod_dir_name <- "new_models"
@@ -82,7 +83,7 @@ jobs:
           purrr::map(
             .x = file.path(new_mod_dir_name, list.files(new_mod_dir_name)),
             .f = r4ss::run,
-            exe = "/usr/local/bin/ss3",
+            exe = here::here("ss3"),
             verbose = TRUE)
           
           new_mod_runs_folder <- file.path(new_mod_dir_name)
