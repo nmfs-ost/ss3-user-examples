@@ -52,10 +52,10 @@ jobs:
 
           update_ref_files <- function(new_mod_path, ss_examples_folder = file.path(getwd(), mod_dir_name)) 
           {
-            mod_name <- basename(new_mod_path)
-            git_mod_path <- file.path(ss_examples_folder, mod_name)
-            # list model files that need to be moved
-            files_to_move <- c("ss_summary.sso")
+          mod_name <- basename(new_mod_path)
+          git_mod_path <- file.path(ss_examples_folder, mod_name)
+          # list model files that need to be moved
+          files_to_move <- c("ss_summary.sso")
             # copy model files from new_mod_path folder to the git_mod_path folder,
             results_of_move <- lapply(files_to_move,
                                         function(x, new_mod_path, git_mod_path) {
@@ -83,7 +83,7 @@ jobs:
           purrr::map(
             .x = file.path(new_mod_dir_name, list.files(new_mod_dir_name)),
             .f = r4ss::run,
-            exe = here::here("ss3"),
+            exe = "/usr/local/bin/ss3",
             verbose = TRUE)
           
           new_mod_runs_folder <- file.path(new_mod_dir_name)
