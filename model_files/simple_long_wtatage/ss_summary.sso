@@ -1,7 +1,7 @@
-#V3.30.23.2;_safe;_compile_date:_Apr 17 2025;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.2
+#V3.30.24.00;_safe;_compile_date:_Sep 10 2025;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.2
 data.ss #_DataFile 
 control.ss #_Control 
-Run_Date: Thu Apr 17 19:47:29 2025
+Run_Date: Thu Sep 11 13:35:00 2025
 Final_phase: 5  N_iterations: 643
 #_LIKELIHOOD 
 Label logL*Lambda
@@ -452,6 +452,11 @@ annF_MSY 0.0915061 0.00957054
 Dead_Catch_MSY 3488.17 196.185
 Ret_Catch_MSY 3488.17 196.185
 B_MSY/SSB_unfished 0.305153 0.0135954
+Recr_MSY_bmarkbio 5286.66 135.039
+Depletion_denom 15749.8 950.113
+HCR_inflect 20645.1 516.554
+R0_for_SRR_bench 7044.89 176.267
+SSB_for_SRR_bench 51612.8 1291.38
 ForeCatch_2022 1777.01 582.894
 ForeCatch_2023 1937.8 586.032
 ForeCatch_2024 2098.71 590.104
@@ -473,9 +478,9 @@ OFLCatch_2029 3842.39 571.597
 OFLCatch_2030 3898.28 549.384
 OFLCatch_2031 3944.67 523.871
 #_Extra_stdev
-ln(SPB)_1971 10.8515 0.0250206
-ln(SPB)_1996 8.98107 0.0398712
-ln(SPB)_2021 9.43148 0.185434
+ln(SSB)_1971 10.8515 0.0250206
+ln(SSB)_1996 8.98107 0.0398712
+ln(SSB)_2021 9.43148 0.185434
 SmryBio_Virgin 129365 0.0
 SmryBio_Initial 129365 0.0
 SmryBio_1971 129365 0.0
