@@ -6,11 +6,13 @@ on:
     paths:
       - 'model_files/**/**'
     types: [closed]
+  workflow_dispatch:
 
 jobs:
    
   add-tag-on-model-update:
-    if: ${{ github.event.pull_request.merged }}
+    if: |
+      github.event_name == 'workflow_dispatch' || github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     env:
       R_REMOTES_NO_ERRORS_FROM_WARNINGS: true
@@ -22,21 +24,40 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v5
 
-      - name: Get the ss last tag on unix
+      - name: Get the ss3 last tag on unix
         id: get-latest-tag-unix
         run: |
-          latest_tag=$(git ls-remote --tags https://github.com/nmfs-ost/ss3-source-code.git | tail -1 | sed 's/.*\/v//')
+          latest_tag=$(git ls-remote --tags https://github.com/nmfs-ost/ss3-source-code.git | cut -d'/' -f3 | sort -V | tail -1)
+          if [[ "$latest_tag" == *"-prerel"* ]]; then
+            latest_tag=$(git ls-remote --tags https://github.com/nmfs-ost/ss3-source-code.git | cut -d'/' -f3 | sort -V | tail -2 | head -1)
+            echo "$latest_tag"
+          else
+            echo "$latest_tag"
+          fi
           echo "tag=${latest_tag}" >> $GITHUB_OUTPUT
           
-      - name: Get the ss last tag on unix
+      - name: Get the ss3 last tag repo on unix
         id: get-latest-tag-repo-unix
         run: |
-          latest_tag_repo=$(git ls-remote --tags | tail -1 | sed 's/.*\/v//')
+          latest_tag_repo=$(git ls-remote --tags origin \
+            | awk '{print $2}' \
+            | grep -o 'v[0-9]\+\(\.[0-9]\+\)*\(-[A-Za-z0-9._-]\+\)*$' \
+            | sed 's/^v//' \
+            | sort -V \
+            | tail -1)
+          echo "$latest-tag-repo"
           echo "tag=${latest_tag_repo}" >> $GITHUB_OUTPUT
           
+      - name: Remove leading v from upstream tag
+        id: strip-v
+        run: |
+          tag_without_v="${{ steps.get-latest-tag-unix.outputs.tag }}"
+          tag_without_v="${tag_without_v#v}"
+          echo "tag=${tag_without_v}" >> $GITHUB_OUTPUT
+
       - name: create tag
         uses: mathieudutour/github-tag-action@v6.2
-        if: ${{ steps.get-latest-tag-unix.outputs.tag != steps.get-latest-tag-repo-unix.outputs.tag}}
+        if: ${{ steps.strip-v.outputs.tag != steps.get-latest-tag-repo-unix.outputs.tag}}
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          custom_tag: ${{ steps.get-latest-tag-unix.outputs.tag }}
+          custom_tag: ${{ steps.strip-v.outputs.tag }}
