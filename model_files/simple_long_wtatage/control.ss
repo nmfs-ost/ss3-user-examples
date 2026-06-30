@@ -1,4 +1,4 @@
-#V3.30.24.2;_safe;_compile_date:_Mar  9 2026;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.2
+#V3.30.25.00;_safe;_compile_date:_Jun 30 2026;_Stock_Synthesis_by_Richard_Methot_(NOAA)_using_ADMB_13.2
 #_Stock_Synthesis_is_a_work_of_the_U.S._Government_and_is_not_subject_to_copyright_protection_in_the_United_States.
 #_Foreign_copyrights_may_apply._See_copyright.txt_for_more_information.
 #_User_support_available_at:_https://groups.google.com/g/ss3-forum_and_NMFS.Stock.Synthesis@noaa.gov
@@ -55,7 +55,12 @@
 1 # GrowthModel: 1=vonBert with L1&L2; 2=Richards with L1&L2; 3=age_specific_K_incr; 4=age_specific_K_decr; 5=age_specific_K_each; 6=NA; 7=NA; 8=growth cessation
 0 #_Age(post-settlement) for L1 (aka Amin); first growth parameter is size at this age; linear growth below this
 25 #_Age(post-settlement) for L2 (aka Amax); 999 to treat as Linf
--999 #_exponential decay of numbers for calc of size in plus group in the initial year (value should approx initial Z; -999 replicates 3.24; -998 to not calc growth above maxage)
+-999 #_exponential decay for growth within plus group and control for time-varying plus group size 
+#_only important when growth does not get near Linf by maxage
+#_value should approx initial Z; or use a code:  -999 replicates 3.24 (with Z=0.2 and numbers weighted updating in years with time-varying growth)
+#_-998 ignores growth within plus group in initial year and disables time-varying changes in plus group mean size
+#_-997 ignores growth within plus group in initial year and enables updating time-varying plus group
+#
 0  #_placeholder for future growth feature
 #
 0 #_SD_add_to_LAA (set to 0.1 for SS2 V1.x compatibility)
@@ -152,7 +157,7 @@
 #
 # all recruitment deviations
 #  1971R 1972R 1973R 1974R 1975R 1976R 1977R 1978R 1979R 1980R 1981R 1982R 1983R 1984R 1985R 1986R 1987R 1988R 1989R 1990R 1991R 1992R 1993R 1994R 1995R 1996R 1997R 1998R 1999R 2000R 2001R 2002R 2003R 2004R 2005R 2006R 2007R 2008R 2009R 2010R 2011R 2012R 2013R 2014R 2015R 2016R 2017R 2018R 2019R 2020F 2021F 2022F 2023F 2024F 2025F 2026F 2027F 2028F 2029F 2030F 2031F
-#  0.0430537 -0.206167 0.0048307 -0.27925 -0.117234 0.614635 -0.107773 -0.0840804 0.172564 0.0461906 0.0407114 -0.354739 -0.560067 -0.382877 0.301967 0.481783 0.149932 -0.0343524 -0.387228 0.466689 -0.758587 -0.346463 -0.8373 0.226273 -0.499954 0.277679 1.07119 -0.478091 -0.705095 0.142853 -0.276254 0.206852 -0.128118 0.405658 0.390371 -0.00144769 -0.165459 0.173005 0.088555 -0.335749 0.21794 0.0710816 0.0843241 0.364444 0.0963648 0.15601 0.30502 0.0818225 0.364485 0.412654 0.162652 0 0 0 0 0 0 0 0 0 0
+#  0.0430537 -0.206167 0.0048307 -0.27925 -0.117234 0.614635 -0.107773 -0.0840804 0.172564 0.0461905 0.0407114 -0.354739 -0.560067 -0.382877 0.301967 0.481783 0.149932 -0.0343524 -0.387228 0.466689 -0.758587 -0.346463 -0.8373 0.226273 -0.499954 0.277679 1.07119 -0.478091 -0.705095 0.142853 -0.276253 0.206852 -0.128118 0.405658 0.390371 -0.00144773 -0.165459 0.173005 0.0885551 -0.335749 0.21794 0.0710816 0.0843241 0.364444 0.0963648 0.15601 0.30502 0.0818225 0.364485 0.412654 0.162652 0 0 0 0 0 0 0 0 0 0
 #
 #Fishing Mortality info 
 0.3 # F ballpark value in units of annual_F
