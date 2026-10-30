@@ -5,7 +5,7 @@
 #_User_info_available_at:_https://nmfs-ost.github.io/ss3-website/
 #_Source_code_at:_https://github.com/nmfs-ost/ss3-source-code
 
-#_Start_time: Fri Oct 30 10:18:51 2026
+#_Start_time: Fri Oct 30 17:32:30 2026
 #_echo_input_data
 #C data file for model showing different selectivities
 #C file created using an r4ss function
